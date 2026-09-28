@@ -5,15 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#071f19" />
     <title>Beranda — Nadhi Hijau</title>
-    <meta name="description" content="Rawat Bali dengan langkah sederhana. Pelajari Tri Hita Karana, simulasikan setoran sampah organik, dan bergerak bersama banjar untuk lingkungan yang lebih hijau." />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230b3025'/%3E%3Cpath d='M11 28C6 14 21 8 30 9c1 16-6 24-17 17M12 28l12-12' fill='none' stroke='%23d2dfa1' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <meta
+      name="description"
+      content="Rawat Bali dengan langkah sederhana. Pelajari Tri Hita Karana, simulasikan setoran sampah organik, dan bergerak bersama banjar untuk lingkungan yang lebih hijau."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230b3025'/%3E%3Cpath d='M11 28C6 14 21 8 30 9c1 16-6 24-17 17M12 28l12-12' fill='none' stroke='%23d2dfa1' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
     <script>
       try {
-        const t = new URLSearchParams(location.search).get("tema") || localStorage.getItem("nadhi.theme");
-        if (t === "light" || t === "dark") { document.documentElement.dataset.theme = t; document.documentElement.classList.toggle("dark", t === "dark"); }
+        const t =
+          new URLSearchParams(location.search).get("tema") ||
+          localStorage.getItem("nadhi.theme");
+        if (t === "light" || t === "dark") {
+          document.documentElement.dataset.theme = t;
+          document.documentElement.classList.toggle("dark", t === "dark");
+        }
       } catch (_) {}
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,346 +36,1039 @@
       tailwind.config = {
         corePlugins: { preflight: false },
         theme: {
-          screens: { mob: '481px', tab: '701px', mid: '901px', lap: '1101px', desk: '1281px', wide: '1601px' },
+          screens: {
+            mob: "481px",
+            tab: "701px",
+            mid: "901px",
+            lap: "1101px",
+            desk: "1281px",
+            wide: "1601px",
+          },
           extend: {
             colors: {
-              page: 'var(--bg)', surface: 'var(--surface)', raised: 'var(--surface-2)', deep: 'var(--deep)',
-              primary: 'var(--text)', muted: 'var(--muted)', line: 'var(--line)',
-              accent: 'var(--lime)', 'accent-fg': 'var(--lime-text)', gold: 'var(--gold)', hdr: 'var(--header)'
+              page: "var(--bg)",
+              surface: "var(--surface)",
+              raised: "var(--surface-2)",
+              deep: "var(--deep)",
+              primary: "var(--text)",
+              muted: "var(--muted)",
+              line: "var(--line)",
+              accent: "var(--lime)",
+              "accent-fg": "var(--lime-text)",
+              gold: "var(--gold)",
+              hdr: "var(--header)",
             },
             fontFamily: {
-              display: ['"Playfair Display"','Georgia','serif'],
-              body: ['"DM Sans"','Arial','sans-serif'],
-              heading: ['"Manrope"','Arial','sans-serif']
-            }
-          }
-        }
-      }
+              display: ['"Playfair Display"', "Georgia", "serif"],
+              body: ['"DM Sans"', "Arial", "sans-serif"],
+              heading: ['"Manrope"', "Arial", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
     <style>
       /* === Theme variables === */
-      :root{color-scheme:dark;--bg:#081f19;--surface:#102a22;--surface-2:#153429;--deep:#051911;--text:#f1f4e9;--muted:#a7b9ad;--line:rgba(207,227,210,.16);--lime:#d6e9a4;--lime-text:#15281c;--gold:#d0cf9b;--header:rgba(6,25,18,.94)}
-      html[data-theme=light]{color-scheme:light;--bg:#f6f8f2;--surface:#edf2e8;--surface-2:#e0eada;--deep:#eaf0e3;--text:#173b2a;--muted:#576e5c;--line:rgba(26,67,44,.17);--lime:#244e35;--lime-text:#f4f6e9;--gold:#696634;--header:rgba(246,248,242,.97)}
+      :root {
+        color-scheme: dark;
+        --bg: #081f19;
+        --surface: #102a22;
+        --surface-2: #153429;
+        --deep: #051911;
+        --text: #f1f4e9;
+        --muted: #a7b9ad;
+        --line: rgba(207, 227, 210, 0.16);
+        --lime: #d6e9a4;
+        --lime-text: #15281c;
+        --gold: #d0cf9b;
+        --header: rgba(6, 25, 18, 0.94);
+      }
+      html[data-theme="light"] {
+        color-scheme: light;
+        --bg: #f6f8f2;
+        --surface: #edf2e8;
+        --surface-2: #e0eada;
+        --deep: #eaf0e3;
+        --text: #173b2a;
+        --muted: #576e5c;
+        --line: rgba(26, 67, 44, 0.17);
+        --lime: #244e35;
+        --lime-text: #f4f6e9;
+        --gold: #696634;
+        --header: rgba(246, 248, 242, 0.97);
+      }
 
       /* === Base resets === */
-      *{box-sizing:border-box}
-      html{scroll-behavior:smooth;scroll-padding-top:98px}
-      body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',Arial,sans-serif;font-size:16px;line-height:1.65;animation:entrance 2.6s ease both}
-      button,input,select{font:inherit}
-      button,a,input,select{-webkit-tap-highlight-color:transparent}
-      button,a{touch-action:manipulation}
-      button{cursor:pointer;color:inherit}
-      a{color:inherit;text-decoration:none}
-      img{display:block;max-width:100%;object-fit:cover}
-      button:disabled{cursor:default}
-      h1,h2,h3,p{margin:0}
-      [hidden]{display:none!important}
-      button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 98px;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "DM Sans", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+        animation: entrance 2.6s ease both;
+      }
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+      button,
+      a,
+      input,
+      select {
+        -webkit-tap-highlight-color: transparent;
+      }
+      button,
+      a {
+        touch-action: manipulation;
+      }
+      button {
+        cursor: pointer;
+        color: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        object-fit: cover;
+      }
+      button:disabled {
+        cursor: default;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      button:focus-visible,
+      a:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      [tabindex]:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 5px;
+      }
 
       /* === Icon system === */
-      .icon-defs{position:absolute;width:0;height:0;overflow:hidden}
-      .icon{height:22px;width:22px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+      .icon-defs {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+      .icon {
+        height: 22px;
+        width: 22px;
+        flex-shrink: 0;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
 
       /* === Skip link === */
-      .skip-link{position:fixed;top:-80px;left:16px;z-index:200;background:var(--lime);color:var(--lime-text);padding:12px 20px}
-      .skip-link:focus{top:12px}
+      .skip-link {
+        position: fixed;
+        top: -80px;
+        left: 16px;
+        z-index: 200;
+        background: var(--lime);
+        color: var(--lime-text);
+        padding: 12px 20px;
+      }
+      .skip-link:focus {
+        top: 12px;
+      }
 
       /* === Theme toggle === */
-      .theme-moon{display:none}
-      html[data-theme=light] .theme-sun{display:none}
-      html[data-theme=light] .theme-moon{display:block}
+      .theme-moon {
+        display: none;
+      }
+      html[data-theme="light"] .theme-sun {
+        display: none;
+      }
+      html[data-theme="light"] .theme-moon {
+        display: block;
+      }
 
       /* === Header scrolled state (JS) === */
-      .site-header.scrolled{position:fixed;background:var(--header);color:var(--text);border-color:var(--line);box-shadow:0 5px 20px #0000000a}
+      .site-header.scrolled {
+        position: fixed;
+        background: var(--header);
+        color: var(--text);
+        border-color: var(--line);
+        box-shadow: 0 5px 20px #0000000a;
+      }
 
       /* === Menu toggle hamburger === */
-      .menu-toggle span{position:absolute;width:18px;height:1px;background:currentColor;top:16px}
-      .menu-toggle span+span{top:24px}
+      .menu-toggle span {
+        position: absolute;
+        width: 18px;
+        height: 1px;
+        background: currentColor;
+        top: 16px;
+      }
+      .menu-toggle span + span {
+        top: 24px;
+      }
 
       /* === Desktop nav active underline === */
-      .desktop-nav a.active:after{content:'';position:absolute;height:2px;background:#d6e9a4;left:0;right:0;bottom:23px}
+      .desktop-nav a.active:after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        background: #d6e9a4;
+        left: 0;
+        right: 0;
+        bottom: 23px;
+      }
 
       /* === Mobile nav active color === */
-      .mobile-nav a[aria-current="page"]{color:var(--lime)}
+      .mobile-nav a[aria-current="page"] {
+        color: var(--lime);
+      }
 
       /* === Hero animation & shade === */
-      .hero-image{animation:hero-pan 55s linear infinite alternate;filter:brightness(.78) saturate(.78)}
-      .hero-shade{background:linear-gradient(90deg,rgba(3,24,14,.73) 0%,rgba(5,28,17,.33) 51%,rgba(4,25,16,.16) 100%),linear-gradient(0deg,#081f19 0%,rgba(8,31,25,.7) 14%,transparent 52%,rgba(4,19,10,.22) 100%)}
+      .hero-image {
+        animation: hero-pan 55s linear infinite alternate;
+        filter: brightness(0.78) saturate(0.78);
+      }
+      .hero-shade {
+        background:
+          linear-gradient(
+            90deg,
+            rgba(3, 24, 14, 0.73) 0%,
+            rgba(5, 28, 17, 0.33) 51%,
+            rgba(4, 25, 16, 0.16) 100%
+          ),
+          linear-gradient(
+            0deg,
+            #081f19 0%,
+            rgba(8, 31, 25, 0.7) 14%,
+            transparent 52%,
+            rgba(4, 19, 10, 0.22) 100%
+          );
+      }
 
       /* === Light theme overrides === */
-      html[data-theme=light] .hero-shade{background:linear-gradient(90deg,rgba(3,24,14,.73),rgba(5,28,17,.3) 70%),linear-gradient(0deg,#183728,transparent 55%)}
-      html[data-theme=light] .brand-mark{color:#47744a}
-      html[data-theme=light] .site-header:not(.scrolled) .brand-mark{color:#d6e9a4}
-      html[data-theme=light] .hero-bottom small{color:#c0d0b9}
+      html[data-theme="light"] .hero-shade {
+        background:
+          linear-gradient(
+            90deg,
+            rgba(3, 24, 14, 0.73),
+            rgba(5, 28, 17, 0.3) 70%
+          ),
+          linear-gradient(0deg, #183728, transparent 55%);
+      }
+      html[data-theme="light"] .brand-mark {
+        color: #47744a;
+      }
+      html[data-theme="light"] .site-header:not(.scrolled) .brand-mark {
+        color: #d6e9a4;
+      }
+      html[data-theme="light"] .hero-bottom small {
+        color: #c0d0b9;
+      }
 
       /* === Reveal animation (JS) === */
-      .reveal.is-ready{opacity:0;transform:translateY(22px);transition:opacity 1.3s ease,transform 1.3s ease}
-      .reveal.is-ready.is-visible{opacity:1;transform:none}
+      .reveal.is-ready {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 1.3s ease,
+          transform 1.3s ease;
+      }
+      .reveal.is-ready.is-visible {
+        opacity: 1;
+        transform: none;
+      }
 
       /* === Dialog (shared, JS-generated content) === */
-      dialog{border:1px solid var(--line);border-radius:10px;max-width:min(680px,calc(100% - 32px));max-height:86svh;padding:0;color:var(--text);background:var(--bg);box-shadow:0 25px 100px #0006;overscroll-behavior:contain;overflow-y:auto}
-      dialog::backdrop{background:#00170ec7;backdrop-filter:blur(7px)}
-      .dialog-shell{position:relative;padding:42px}
-      .dialog-close{position:absolute;right:16px;top:16px;width:34px;height:34px;background:var(--surface);z-index:2}
-      .dialog-close>.icon{width:16px;height:16px}
-      .dialog-eyebrow{font-size:.75rem;letter-spacing:.13em;color:var(--gold);margin-bottom:13px;padding-right:25px}
-      .dialog-title{font-family:'Manrope',Arial,sans-serif;font-size:1.8rem;letter-spacing:-.04em;line-height:1.3;margin-bottom:24px;padding-right:12px}
-      .dialog-body{font-size:1rem;color:var(--muted);line-height:1.9}
-      .dialog-body p+p{margin-top:15px}
-      .dialog-body h3{font-family:'Manrope',Arial,sans-serif;font-size:1rem;color:var(--text);margin:24px 0 8px;font-weight:600}
-      .dialog-body ul,.dialog-body ol{padding-left:20px;margin:10px 0}
-      .dialog-body li{margin:8px 0}
-      .dialog-callout{background:var(--surface-2);border-left:2px solid var(--gold);padding:15px 18px;border-radius:0 4px 4px 0;margin:18px 0;color:var(--text)}
-      .dialog-photo{width:100%;max-height:340px;object-fit:cover;border-radius:4px;margin-bottom:18px}
-      .dialog-source{font-size:.75rem;color:var(--gold);text-decoration:underline;text-underline-offset:4px}
-      .dialog-body,.dialog-title{overflow-wrap:anywhere}
+      dialog {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        max-width: min(680px, calc(100% - 32px));
+        max-height: 86svh;
+        padding: 0;
+        color: var(--text);
+        background: var(--bg);
+        box-shadow: 0 25px 100px #0006;
+        overscroll-behavior: contain;
+        overflow-y: auto;
+      }
+      dialog::backdrop {
+        background: #00170ec7;
+        backdrop-filter: blur(7px);
+      }
+      .dialog-shell {
+        position: relative;
+        padding: 42px;
+      }
+      .dialog-close {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        width: 34px;
+        height: 34px;
+        background: var(--surface);
+        z-index: 2;
+      }
+      .dialog-close > .icon {
+        width: 16px;
+        height: 16px;
+      }
+      .dialog-eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 0.13em;
+        color: var(--gold);
+        margin-bottom: 13px;
+        padding-right: 25px;
+      }
+      .dialog-title {
+        font-family: "Manrope", Arial, sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: -0.04em;
+        line-height: 1.3;
+        margin-bottom: 24px;
+        padding-right: 12px;
+      }
+      .dialog-body {
+        font-size: 1rem;
+        color: var(--muted);
+        line-height: 1.9;
+      }
+      .dialog-body p + p {
+        margin-top: 15px;
+      }
+      .dialog-body h3 {
+        font-family: "Manrope", Arial, sans-serif;
+        font-size: 1rem;
+        color: var(--text);
+        margin: 24px 0 8px;
+        font-weight: 600;
+      }
+      .dialog-body ul,
+      .dialog-body ol {
+        padding-left: 20px;
+        margin: 10px 0;
+      }
+      .dialog-body li {
+        margin: 8px 0;
+      }
+      .dialog-callout {
+        background: var(--surface-2);
+        border-left: 2px solid var(--gold);
+        padding: 15px 18px;
+        border-radius: 0 4px 4px 0;
+        margin: 18px 0;
+        color: var(--text);
+      }
+      .dialog-photo {
+        width: 100%;
+        max-height: 340px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 18px;
+      }
+      .dialog-source {
+        font-size: 0.75rem;
+        color: var(--gold);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+      .dialog-body,
+      .dialog-title {
+        overflow-wrap: anywhere;
+      }
 
       /* === Noscript === */
-      .no-js{background:var(--lime);color:var(--lime-text);padding:20px;text-align:center}
+      .no-js {
+        background: var(--lime);
+        color: var(--lime-text);
+        padding: 20px;
+        text-align: center;
+      }
 
       /* === Keyframes === */
-      @keyframes entrance{from{opacity:0}to{opacity:1}}
-      @keyframes hero-pan{from{transform:translateX(-9%)}to{transform:translateX(0)}}
+      @keyframes entrance {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes hero-pan {
+        from {
+          transform: translateX(-9%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
 
       /* === Reduced motion === */
-      @media(prefers-reduced-motion:reduce){
-        html{scroll-behavior:auto}
-        *,*::before,*::after{animation:none!important;transition:none!important}
-        .reveal.is-ready{opacity:1;transform:none}
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+        .reveal.is-ready {
+          opacity: 1;
+          transform: none;
+        }
       }
 
       /* === Responsive dialog === */
-      @media(max-width:700px){
-        .dialog-shell{padding:40px 24px 26px}
-        .dialog-title{font-size:1.55rem}
-        .dialog-body{font-size:.875rem}
-        dialog{max-height:90svh}
+      @media (max-width: 700px) {
+        .dialog-shell {
+          padding: 40px 24px 26px;
+        }
+        .dialog-title {
+          font-size: 1.55rem;
+        }
+        .dialog-body {
+          font-size: 0.875rem;
+        }
+        dialog {
+          max-height: 90svh;
+        }
       }
-      @media(max-width:480px){
-        .dialog-shell{padding:52px 20px 26px}
-        dialog{max-width:calc(100% - 24px)}
+      @media (max-width: 480px) {
+        .dialog-shell {
+          padding: 52px 20px 26px;
+        }
+        dialog {
+          max-width: calc(100% - 24px);
+        }
       }
     </style>
     <script src="app.js" defer></script>
   </head>
   <body data-page="beranda">
     <a class="skip-link" href="#main">Langsung ke konten</a>
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon-defs" aria-hidden="true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon-defs"
+      aria-hidden="true"
+    >
       <defs>
-        <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C1 8 12 3 21 3c0 12-5 19-15 14M4 21 16 9" /></symbol>
-        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></symbol>
-        <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6" /></symbol>
-        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" /></symbol>
-        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14a8.5 8.5 0 0 1-10-10A8.5 8.5 0 1 0 20 14Z" /></symbol>
-        <symbol id="i-flower" viewBox="0 0 24 24"><path d="M9 8C4 0 0 10 7 11c-8 2-2 11 3 5 0 8 10 5 6-2 8 3 9-8 1-6 3-8-7-9-8 0Z" /><circle cx="12" cy="11" r="2" /></symbol>
-        <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="10" cy="6" rx="7" ry="3" /><path d="M3 6v5c0 4 14 4 14 0V6M3 11v5c0 4 14 4 14 0v-5M17 10c6 0 5 6 5 8s-5 4-9 3" /></symbol>
-        <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3" /><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 5v2" /></symbol>
-        <symbol id="i-cycle" viewBox="0 0 24 24"><path d="m8 4 4-2 4 7m-1-5 1 5-5-1m9 5 2 4-8 4m6-3-6 3v-5M5 20H2V11m1 4-1-4 5 1M4 8l3-5" /></symbol>
-        <symbol id="i-cup" viewBox="0 0 24 24"><path d="M7 3h10v7a5 5 0 0 1-10 0V3Zm0 2H3v3a4 4 0 0 0 4 4m10-7h4v3a4 4 0 0 1-4 4m-5 3v5m-4 1h8" /></symbol>
-        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></symbol>
-        <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></symbol>
-        <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6" /></symbol>
-        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></symbol>
-        <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M7 3v4m10-4v4M3 11h18M7 15h2m4 0h2m-8 3h2" /></symbol>
-        <symbol id="i-game" viewBox="0 0 24 24"><path d="M6 7h12c3 0 6 13 2 13-2 0-3-4-5-4H9c-2 0-3 4-5 4C0 20 3 7 6 7Zm1 3v5m-2-2h4m7-2h.01M19 14h.01" /></symbol>
-        <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 11v6m0-10v.01" /></symbol>
-        <symbol id="i-bottle" viewBox="0 0 24 24"><path d="M9 2h6v4l2 3v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3V2Zm-2 9h10M7 17h10" /></symbol>
+        <symbol id="i-leaf" viewBox="0 0 24 24">
+          <path d="M5 19C1 8 12 3 21 3c0 12-5 19-15 14M4 21 16 9" />
+        </symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="i-down" viewBox="0 0 24 24">
+          <path d="M12 4v16m-6-6 6 6 6-6" />
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+          />
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+          <path d="M20 14a8.5 8.5 0 0 1-10-10A8.5 8.5 0 1 0 20 14Z" />
+        </symbol>
+        <symbol id="i-flower" viewBox="0 0 24 24">
+          <path
+            d="M9 8C4 0 0 10 7 11c-8 2-2 11 3 5 0 8 10 5 6-2 8 3 9-8 1-6 3-8-7-9-8 0Z"
+          />
+          <circle cx="12" cy="11" r="2" />
+        </symbol>
+        <symbol id="i-coins" viewBox="0 0 24 24">
+          <ellipse cx="10" cy="6" rx="7" ry="3" />
+          <path
+            d="M3 6v5c0 4 14 4 14 0V6M3 11v5c0 4 14 4 14 0v-5M17 10c6 0 5 6 5 8s-5 4-9 3"
+          />
+        </symbol>
+        <symbol id="i-people" viewBox="0 0 24 24">
+          <circle cx="9" cy="7" r="3" />
+          <path
+            d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 5v2"
+          />
+        </symbol>
+        <symbol id="i-cycle" viewBox="0 0 24 24">
+          <path
+            d="m8 4 4-2 4 7m-1-5 1 5-5-1m9 5 2 4-8 4m6-3-6 3v-5M5 20H2V11m1 4-1-4 5 1M4 8l3-5"
+          />
+        </symbol>
+        <symbol id="i-cup" viewBox="0 0 24 24">
+          <path
+            d="M7 3h10v7a5 5 0 0 1-10 0V3Zm0 2H3v3a4 4 0 0 0 4 4m10-7h4v3a4 4 0 0 1-4 4m-5 3v5m-4 1h8"
+          />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path d="m5 12 4 4L19 6" />
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 24 24">
+          <path d="m6 6 12 12M6 18 18 6" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+          <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" />
+          <circle cx="12" cy="10" r="2.5" />
+        </symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="16" rx="2" />
+          <path d="M7 3v4m10-4v4M3 11h18M7 15h2m4 0h2m-8 3h2" />
+        </symbol>
+        <symbol id="i-game" viewBox="0 0 24 24">
+          <path
+            d="M6 7h12c3 0 6 13 2 13-2 0-3-4-5-4H9c-2 0-3 4-5 4C0 20 3 7 6 7Zm1 3v5m-2-2h4m7-2h.01M19 14h.01"
+          />
+        </symbol>
+        <symbol id="i-info" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 11v6m0-10v.01" />
+        </symbol>
+        <symbol id="i-bottle" viewBox="0 0 24 24">
+          <path
+            d="M9 2h6v4l2 3v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3V2Zm-2 9h10M7 17h10"
+          />
+        </symbol>
       </defs>
     </svg>
 
     <!-- ========== HEADER ========== -->
-    <header class="site-header absolute top-0 left-0 w-full z-50 text-[#f1f4e9] border-b border-[rgba(236,245,226,.17)] transition-[background] duration-300" id="site-header">
-      <div class="nav-shell w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-96px)] max-w-[1440px] h-[74px] tab:h-20 desk:h-24 gap-2 tab:gap-5 min-[1201px]:gap-6 mx-auto flex items-center justify-between">
-        <a href="index.html" class="brand flex gap-2.5 items-center whitespace-nowrap font-heading text-[0.9375rem] mob:text-[1rem] min-[1201px]:text-[1.12rem] tracking-[.055em] font-extrabold leading-[1.2]" aria-label="Nadhi Hijau, beranda">
-          <span class="brand-mark w-6 mob:w-[27px] min-[1201px]:w-[35px] h-10 grid place-items-center text-[#d6e9a4]">
-            <svg class="icon w-6 mob:w-[27px] min-[1201px]:w-8 h-8"><use href="#i-leaf" /></svg>
+    <header
+      class="site-header absolute top-0 left-0 w-full z-50 text-[#f1f4e9] border-b border-[rgba(236,245,226,.17)] transition-[background] duration-300"
+      id="site-header"
+    >
+      <div
+        class="nav-shell w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-96px)] max-w-[1440px] h-[74px] tab:h-20 desk:h-24 gap-2 tab:gap-5 min-[1201px]:gap-6 mx-auto flex items-center justify-between"
+      >
+        <a
+          href="index.html"
+          class="brand flex gap-2.5 items-center whitespace-nowrap font-heading text-[0.9375rem] mob:text-[1rem] min-[1201px]:text-[1.12rem] tracking-[.055em] font-extrabold leading-[1.2]"
+          aria-label="Nadhi Hijau, beranda"
+        >
+          <span
+            class="brand-mark w-6 mob:w-[27px] min-[1201px]:w-[35px] h-10 grid place-items-center text-[#d6e9a4]"
+          >
+            <svg class="icon w-6 mob:w-[27px] min-[1201px]:w-8 h-8">
+              <use href="#i-leaf" />
+            </svg>
           </span>
-          <span>NADHI<span class="font-normal ml-[3px]">HIJAU</span>
-            <small class="font-body block text-xs tracking-[.15em] mob:tracking-[.04em] tab:tracking-[.15em] font-medium opacity-70 mt-[7px] hidden mob:block">RAWAT BALI, RAWAT KEHIDUPAN</small>
+          <span
+            >NADHI<span class="font-normal ml-[3px]">HIJAU</span>
+            <small
+              class="font-body block text-xs tracking-[.15em] mob:tracking-[.04em] tab:tracking-[.15em] font-medium opacity-70 mt-[7px] hidden mob:block"
+              >RAWAT BALI, RAWAT KEHIDUPAN</small
+            >
           </span>
         </a>
-        <nav class="desktop-nav hidden desk:flex items-center gap-[25px] min-[1201px]:gap-[18px] desk:gap-[25px]" aria-label="Navigasi utama">
-          <a href="index.html" class="active text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100" aria-current="page">Beranda</a>
-          <a href="filosofi.html" class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100">Filosofi</a>
-          <a href="kalkulator.html" class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100">Aksi Hijau</a>
-          <a href="leaderboard.html" class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100">Leaderboard</a>
-          <a href="galeri.html" class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100">Galeri</a>
-          <a href="pengumuman.html" class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100">Info Banjar</a>
+        <nav
+          class="desktop-nav hidden desk:flex items-center gap-[25px] min-[1201px]:gap-[18px] desk:gap-[25px]"
+          aria-label="Navigasi utama"
+        >
+          <a
+            href="index.html"
+            class="active text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100"
+            aria-current="page"
+            >Beranda</a
+          >
+          <a
+            href="filosofi.html"
+            class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100"
+            >Filosofi</a
+          >
+          <a
+            href="kalkulator.html"
+            class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100"
+            >Aksi Hijau</a
+          >
+          <a
+            href="leaderboard.html"
+            class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100"
+            >Leaderboard</a
+          >
+          <a
+            href="galeri.html"
+            class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100"
+            >Galeri</a
+          >
+          <a
+            href="pengumuman.html"
+            class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100"
+            >Info Banjar</a
+          >
         </nav>
-        <div class="nav-actions flex items-center gap-[6px] tab:gap-[10px] min-[1201px]:gap-[14px] flex-shrink-0">
-          <button class="theme-toggle inline-flex items-center justify-center bg-transparent border border-[rgba(206,222,201,.4)] rounded-full w-[44px] h-[44px] desk:w-[42px] desk:h-[42px] flex-shrink-0" id="theme-toggle" type="button" aria-label="Aktifkan tema terang" title="Ganti tema">
+        <div
+          class="nav-actions flex items-center gap-[6px] tab:gap-[10px] min-[1201px]:gap-[14px] flex-shrink-0"
+        >
+          <button
+            class="theme-toggle inline-flex items-center justify-center bg-transparent border border-[rgba(206,222,201,.4)] rounded-full w-[44px] h-[44px] desk:w-[42px] desk:h-[42px] flex-shrink-0"
+            id="theme-toggle"
+            type="button"
+            aria-label="Aktifkan tema terang"
+            title="Ganti tema"
+          >
             <svg class="icon theme-sun"><use href="#i-sun" /></svg>
             <svg class="icon theme-moon"><use href="#i-moon" /></svg>
           </button>
-          <a class="nav-cta hidden tab:flex desk:flex items-center gap-[18px] border border-[rgba(207,227,210,.4)] rounded-[5px] text-sm py-[10px] px-[14px] whitespace-nowrap min-h-[44px]" href="edukasi.html">Ruang Belajar <svg class="icon w-[17px]"><use href="#i-arrow" /></svg></a>
-          <button id="menu-toggle" class="menu-toggle desk:hidden inline-flex items-center justify-center bg-transparent border border-line rounded-[5px] w-[44px] h-[44px] flex-shrink-0 relative" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-nav">
+          <a
+            class="nav-cta hidden tab:flex desk:flex items-center gap-[18px] border border-[rgba(207,227,210,.4)] rounded-[5px] text-sm py-[10px] px-[14px] whitespace-nowrap min-h-[44px]"
+            href="edukasi.html"
+            >Ruang Belajar
+            <svg class="icon w-[17px]"><use href="#i-arrow" /></svg
+          ></a>
+          <button
+            id="menu-toggle"
+            class="menu-toggle desk:hidden inline-flex items-center justify-center bg-transparent border border-line rounded-[5px] w-[44px] h-[44px] flex-shrink-0 relative"
+            aria-label="Buka menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
             <span></span><span></span>
           </button>
         </div>
       </div>
-      <nav id="mobile-nav" class="mobile-nav bg-page text-primary py-[10px] px-6 pb-6 border-b border-line max-h-[calc(100svh-74px)] tab:max-h-[calc(100svh-80px)] overflow-y-auto" aria-label="Navigasi ponsel" hidden>
-        <a href="index.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]" aria-current="page">Beranda</a>
-        <a href="filosofi.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Filosofi</a>
-        <a href="kalkulator.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Aksi Hijau</a>
-        <a href="leaderboard.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Leaderboard</a>
-        <a href="galeri.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Galeri</a>
-        <a href="pengumuman.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Info Banjar</a>
-        <a href="edukasi.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Ruang Belajar</a>
+      <nav
+        id="mobile-nav"
+        class="mobile-nav bg-page text-primary py-[10px] px-6 pb-6 border-b border-line max-h-[calc(100svh-74px)] tab:max-h-[calc(100svh-80px)] overflow-y-auto"
+        aria-label="Navigasi ponsel"
+        hidden
+      >
+        <a
+          href="index.html"
+          class="block py-[11px] px-[6px] border-b border-line min-h-[46px]"
+          aria-current="page"
+          >Beranda</a
+        >
+        <a
+          href="filosofi.html"
+          class="block py-[11px] px-[6px] border-b border-line min-h-[46px]"
+          >Filosofi</a
+        >
+        <a
+          href="kalkulator.html"
+          class="block py-[11px] px-[6px] border-b border-line min-h-[46px]"
+          >Aksi Hijau</a
+        >
+        <a
+          href="leaderboard.html"
+          class="block py-[11px] px-[6px] border-b border-line min-h-[46px]"
+          >Leaderboard</a
+        >
+        <a
+          href="galeri.html"
+          class="block py-[11px] px-[6px] border-b border-line min-h-[46px]"
+          >Galeri</a
+        >
+        <a
+          href="pengumuman.html"
+          class="block py-[11px] px-[6px] border-b border-line min-h-[46px]"
+          >Info Banjar</a
+        >
+        <a
+          href="edukasi.html"
+          class="block py-[11px] px-[6px] border-b border-line min-h-[46px]"
+          >Ruang Belajar</a
+        >
       </nav>
     </header>
 
     <!-- ========== MAIN ========== -->
     <main id="main">
-
       <!-- HERO -->
-      <section id="beranda" class="relative min-h-[max(790px,100svh)] tab:min-h-[810px] desk:min-h-[min(960px,100svh)] wide:min-h-[940px] pt-[135px] tab:pt-[160px] desk:pt-[184px] wide:pt-[220px] flex flex-col isolate overflow-hidden text-[#f1f4e9] bg-[#193e25]">
+      <section
+        id="beranda"
+        class="relative min-h-[max(790px,100svh)] tab:min-h-[810px] desk:min-h-[min(960px,100svh)] wide:min-h-[940px] pt-[135px] tab:pt-[160px] desk:pt-[184px] wide:pt-[220px] flex flex-col isolate overflow-hidden text-[#f1f4e9] bg-[#193e25]"
+      >
         <!-- Hero background -->
         <div class="absolute inset-0 -z-20 overflow-hidden" aria-hidden="true">
-          <img src="assets/hero.webp" alt="" class="hero-image absolute inset-0 w-[130%] tab:w-[112%] max-w-none h-full object-cover object-[60%_center] tab:object-[center_50%]" fetchpriority="high" />
+          <img
+            src="assets/hero.webp"
+            alt=""
+            class="hero-image absolute inset-0 w-[130%] tab:w-[112%] max-w-none h-full object-cover object-[60%_center] tab:object-[center_50%]"
+            fetchpriority="high"
+          />
           <div class="hero-shade absolute inset-0"></div>
         </div>
 
         <!-- Hero content -->
-        <div class="flex-1 pt-[18px] tab:pt-[25px] wide:pt-5 pb-[35px] tab:pb-[52px] w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto">
+        <div
+          class="flex-1 pt-[18px] tab:pt-[25px] wide:pt-5 pb-[35px] tab:pb-[52px] w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto"
+        >
           <!-- Eyebrow -->
-          <div class="text-[#d6dfae] text-xs tracking-[.13em] tab:tracking-[.2em] flex items-center gap-3 tab:gap-[17px] mb-[26px]">
-            <span class="w-6 tab:w-[34px] h-px bg-[#d0cf9b]"></span> SEBUAH GERAKAN UNTUK PULAU KITA
+          <div
+            class="text-[#d6dfae] text-xs tracking-[.13em] tab:tracking-[.2em] flex items-center gap-3 tab:gap-[17px] mb-[26px]"
+          >
+            <span class="w-6 tab:w-[34px] h-px bg-[#d0cf9b]"></span> SEBUAH
+            GERAKAN UNTUK PULAU KITA
           </div>
           <!-- H1 -->
-          <h1 class="font-heading text-[clamp(3.3rem,10.5vw,4.6rem)] min-[961px]:text-[clamp(4rem,6.8vw,6.5rem)] wide:text-[7rem] font-medium leading-[1.08] tracking-[-0.055em] tab:tracking-[-0.055em] max-w-[800px] [text-shadow:0_1px_35px_#00150922]">
-            Bali lestari,<br />mulai dari <em class="font-display font-normal tracking-[-0.035em] text-[#dae5b6]">kita.</em>
+          <h1
+            class="font-heading text-[clamp(3.3rem,10.5vw,4.6rem)] min-[961px]:text-[clamp(4rem,6.8vw,6.5rem)] wide:text-[7rem] font-medium leading-[1.08] tracking-[-0.055em] tab:tracking-[-0.055em] max-w-[800px] [text-shadow:0_1px_35px_#00150922]"
+          >
+            Bali lestari,<br />mulai dari
+            <em
+              class="font-display font-normal tracking-[-0.035em] text-[#dae5b6]"
+              >kita.</em
+            >
           </h1>
           <!-- Subtitle -->
-          <p class="text-[#d2dcce] text-base leading-[1.9] tab:leading-[1.85] mt-[23px] tab:mt-[27px]">
-            Dari hal kecil yang kita pilah hari ini,<br />tumbuh masa depan Bali yang lebih hijau.
+          <p
+            class="text-[#d2dcce] text-base leading-[1.9] tab:leading-[1.85] mt-[23px] tab:mt-[27px]"
+          >
+            Dari hal kecil yang kita pilah hari ini,<br />tumbuh masa depan Bali
+            yang lebih hijau.
           </p>
           <!-- Buttons -->
-          <div class="flex items-start tab:items-center gap-[15px] tab:gap-8 mt-[29px] tab:mt-[34px] flex-wrap">
-            <a href="kalkulator.html" class="inline-flex items-center justify-center gap-[22px] tab:gap-7 px-[18px] tab:px-6 py-[14px] tab:py-[15px] min-h-[54px] border border-transparent rounded-[5px] text-sm tab:text-base font-semibold leading-[1.4] transition-[transform,background] duration-200 hover:-translate-y-0.5 bg-[#d6e9a4] text-[#15281c] hover:brightness-110">
+          <div
+            class="flex items-start tab:items-center gap-[15px] tab:gap-8 mt-[29px] tab:mt-[34px] flex-wrap"
+          >
+            <a
+              href="kalkulator.html"
+              class="inline-flex items-center justify-center gap-[22px] tab:gap-7 px-[18px] tab:px-6 py-[14px] tab:py-[15px] min-h-[54px] border border-transparent rounded-[5px] text-sm tab:text-base font-semibold leading-[1.4] transition-[transform,background] duration-200 hover:-translate-y-0.5 bg-[#d6e9a4] text-[#15281c] hover:brightness-110"
+            >
               Mulai Aksi Hijau <svg class="icon"><use href="#i-arrow" /></svg>
             </a>
-            <a href="#tentang-kami" class="flex items-center gap-[10px] tab:gap-[17px] text-sm tab:text-base border-b border-[#d0cf9b55] py-[13px]">
-              Kenali gerakan kami <svg class="icon w-4 h-4"><use href="#i-down" /></svg>
+            <a
+              href="#tentang-kami"
+              class="flex items-center gap-[10px] tab:gap-[17px] text-sm tab:text-base border-b border-[#d0cf9b55] py-[13px]"
+            >
+              Kenali gerakan kami
+              <svg class="icon w-4 h-4"><use href="#i-down" /></svg>
             </a>
           </div>
           <!-- Location -->
-          <div class="flex items-center gap-2 text-xs tracking-[.1em] tab:tracking-[.17em] text-[#b6c7b5] mt-[39px] tab:mt-[49px]">
-            <svg class="icon h-[13px] w-[13px]"><use href="#i-pin" /></svg> BALI, INDONESIA <span class="ml-[9px] tab:ml-[19px] opacity-70 tracking-[.08em]">8° S · 115° E</span>
+          <div
+            class="flex items-center gap-2 text-xs tracking-[.1em] tab:tracking-[.17em] text-[#b6c7b5] mt-[39px] tab:mt-[49px]"
+          >
+            <svg class="icon h-[13px] w-[13px]"><use href="#i-pin" /></svg>
+            BALI, INDONESIA
+            <span class="ml-[9px] tab:ml-[19px] opacity-70 tracking-[.08em]"
+              >8° S · 115° E</span
+            >
           </div>
         </div>
 
         <!-- Hero side text (hidden on mobile) -->
-        <div class="hero-side hidden desk:flex absolute right-[24px] min-[1201px]:right-[42px] top-[300px] items-center gap-[22px] [writing-mode:vertical-rl] text-xs tracking-[.2em] text-[#d6e1ce]">
+        <div
+          class="hero-side hidden desk:flex absolute right-[24px] min-[1201px]:right-[42px] top-[300px] items-center gap-[22px] [writing-mode:vertical-rl] text-xs tracking-[.2em] text-[#d6e1ce]"
+        >
           <span>HARMONI DENGAN ALAM</span>
           <i class="w-px h-[90px] bg-[#d6e1ce66] not-italic"></i>
           <span>01 / 07</span>
         </div>
 
         <!-- Hero bottom bar -->
-        <div class="relative grid grid-cols-1 tab:grid-cols-3 py-[9px] tab:py-[29px] pb-[15px] tab:pb-[34px] border-t border-[#b8d2b92e] gap-0 tab:gap-[30px] w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto">
-          <div class="flex items-center gap-[14px] tab:gap-[17px] py-[14px] tab:py-0">
-            <svg class="icon text-[#c0d29f] w-5 tab:w-[25px] h-5 tab:h-[25px]"><use href="#i-leaf" /></svg>
-            <span class="flex items-baseline justify-between tab:block flex-1 text-sm tab:text-base leading-[1.3] gap-3">Pilah dari rumah<small class="block text-xs text-[#9cb29f] mt-0 tab:mt-[9px] max-w-[148px] tab:max-w-none text-right tab:text-left leading-[1.65]">Langkah kecil, dampak berarti</small></span>
+        <div
+          class="relative grid grid-cols-1 tab:grid-cols-3 py-[9px] tab:py-[29px] pb-[15px] tab:pb-[34px] border-t border-[#b8d2b92e] gap-0 tab:gap-[30px] w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto"
+        >
+          <div
+            class="flex items-center gap-[14px] tab:gap-[17px] py-[14px] tab:py-0"
+          >
+            <svg class="icon text-[#c0d29f] w-5 tab:w-[25px] h-5 tab:h-[25px]">
+              <use href="#i-leaf" />
+            </svg>
+            <span
+              class="flex items-baseline justify-between tab:block flex-1 text-sm tab:text-base leading-[1.3] gap-3"
+              >Pilah dari rumah<small
+                class="block text-xs text-[#9cb29f] mt-0 tab:mt-[9px] max-w-[148px] tab:max-w-none text-right tab:text-left leading-[1.65]"
+                >Langkah kecil, dampak berarti</small
+              ></span
+            >
           </div>
-          <div class="flex items-center gap-[14px] tab:gap-[17px] py-[14px] tab:py-0 border-t tab:border-t-0 tab:border-l border-[#b8d2b926] tab:border-[#b8d2b933] tab:pl-[30px]">
-            <svg class="icon text-[#c0d29f] w-5 tab:w-[25px] h-5 tab:h-[25px]"><use href="#i-people" /></svg>
-            <span class="flex items-baseline justify-between tab:block flex-1 text-sm tab:text-base leading-[1.3] gap-3">Bergerak bersama banjar<small class="block text-xs text-[#9cb29f] mt-0 tab:mt-[9px] max-w-[148px] tab:max-w-none text-right tab:text-left leading-[1.65]">Karena lestari adalah kerja bersama</small></span>
+          <div
+            class="flex items-center gap-[14px] tab:gap-[17px] py-[14px] tab:py-0 border-t tab:border-t-0 tab:border-l border-[#b8d2b926] tab:border-[#b8d2b933] tab:pl-[30px]"
+          >
+            <svg class="icon text-[#c0d29f] w-5 tab:w-[25px] h-5 tab:h-[25px]">
+              <use href="#i-people" />
+            </svg>
+            <span
+              class="flex items-baseline justify-between tab:block flex-1 text-sm tab:text-base leading-[1.3] gap-3"
+              >Bergerak bersama banjar<small
+                class="block text-xs text-[#9cb29f] mt-0 tab:mt-[9px] max-w-[148px] tab:max-w-none text-right tab:text-left leading-[1.65]"
+                >Karena lestari adalah kerja bersama</small
+              ></span
+            >
           </div>
-          <div class="flex items-center gap-[14px] tab:gap-[17px] py-[14px] tab:py-0 border-t tab:border-t-0 tab:border-l border-[#b8d2b926] tab:border-[#b8d2b933] tab:pl-[30px]">
-            <svg class="icon text-[#c0d29f] w-5 tab:w-[25px] h-5 tab:h-[25px]"><use href="#i-cycle" /></svg>
-            <span class="flex items-baseline justify-between tab:block flex-1 text-sm tab:text-base leading-[1.3] gap-3">Kembalikan ke alam<small class="block text-xs text-[#9cb29f] mt-0 tab:mt-[9px] max-w-[148px] tab:max-w-none text-right tab:text-left leading-[1.65]">Yang organik, jadi kehidupan baru</small></span>
+          <div
+            class="flex items-center gap-[14px] tab:gap-[17px] py-[14px] tab:py-0 border-t tab:border-t-0 tab:border-l border-[#b8d2b926] tab:border-[#b8d2b933] tab:pl-[30px]"
+          >
+            <svg class="icon text-[#c0d29f] w-5 tab:w-[25px] h-5 tab:h-[25px]">
+              <use href="#i-cycle" />
+            </svg>
+            <span
+              class="flex items-baseline justify-between tab:block flex-1 text-sm tab:text-base leading-[1.3] gap-3"
+              >Kembalikan ke alam<small
+                class="block text-xs text-[#9cb29f] mt-0 tab:mt-[9px] max-w-[148px] tab:max-w-none text-right tab:text-left leading-[1.65]"
+                >Yang organik, jadi kehidupan baru</small
+              ></span
+            >
           </div>
         </div>
       </section>
 
       <!-- TENTANG KAMI -->
-      <section id="tentang-kami" class="py-16 tab:py-20 lap:py-[108px] scroll-mt-5" aria-labelledby="about-title">
-        <div class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto grid grid-cols-1 mid:grid-cols-[1fr_1.12fr] gap-[29px] mid:gap-[35px] lap:gap-20 items-start reveal">
+      <section
+        id="tentang-kami"
+        class="py-16 tab:py-20 lap:py-[108px] scroll-mt-5"
+        aria-labelledby="about-title"
+      >
+        <div
+          class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto grid grid-cols-1 mid:grid-cols-[1fr_1.12fr] gap-[29px] mid:gap-[35px] lap:gap-20 items-start reveal"
+        >
           <div>
-            <div class="text-xs font-semibold tracking-[.12em] tab:tracking-[.16em] flex items-center gap-3 tab:gap-[17px] text-gold mb-5 tab:mb-6">
-              <span class="text-muted text-sm tracking-[.03em] pr-3 tab:pr-[18px] border-r border-line">01</span> TENTANG KAMI
+            <div
+              class="text-xs font-semibold tracking-[.12em] tab:tracking-[.16em] flex items-center gap-3 tab:gap-[17px] text-gold mb-5 tab:mb-6"
+            >
+              <span
+                class="text-muted text-sm tracking-[.03em] pr-3 tab:pr-[18px] border-r border-line"
+                >01</span
+              >
+              TENTANG KAMI
             </div>
-            <h2 id="about-title" class="font-heading text-[2.15rem] tab:text-[clamp(2.1rem,3.2vw,3.1rem)] leading-[1.24] font-medium tracking-[-0.045em]">
-              Berakar di Bali.<br />Bergerak untuk <em class="font-display font-normal tracking-[-0.035em]">bumi.</em>
+            <h2
+              id="about-title"
+              class="font-heading text-[2.15rem] tab:text-[clamp(2.1rem,3.2vw,3.1rem)] leading-[1.24] font-medium tracking-[-0.045em]"
+            >
+              Berakar di Bali.<br />Bergerak untuk
+              <em class="font-display font-normal tracking-[-0.035em]"
+                >bumi.</em
+              >
             </h2>
           </div>
           <div class="text-muted text-base leading-[1.95]">
-            <p class="text-primary text-[1.125rem] leading-[1.85]">Nadhi Hijau adalah website kampanye publik yang mengajak masyarakat Bali merawat lingkungan melalui kebiasaan sederhana: memilah sampah, mengolah bahan organik, dan bergerak bersama banjar.</p>
-            <p class="mt-[22px]">Kami percaya bahwa kepedulian terhadap alam dapat tumbuh dari rumah, dari kegiatan sehari-hari, dan dari kebersamaan warga. Karena itu, Nadhi Hijau menghadirkan ruang belajar yang dekat dengan kehidupan masyarakat Bali—mulai dari mengenali sisa canang dan dedaunan hingga memahami manfaat pengomposan.</p>
-            <p class="mt-[22px]">Berlandaskan nilai Tri Hita Karana, gerakan ini menghubungkan kearifan lokal dengan cara belajar yang interaktif. Tujuannya adalah membantu setiap orang menemukan langkah kecil yang bisa dilakukan untuk menjaga Bali tetap lestari.</p>
+            <p class="text-primary text-[1.125rem] leading-[1.85]">
+              Nadhi Hijau adalah website kampanye publik yang mengajak
+              masyarakat Bali merawat lingkungan melalui kebiasaan sederhana:
+              memilah sampah, mengolah bahan organik, dan bergerak bersama
+              banjar.
+            </p>
+            <p class="mt-[22px]">
+              Kami percaya bahwa kepedulian terhadap alam dapat tumbuh dari
+              rumah, dari kegiatan sehari-hari, dan dari kebersamaan warga.
+              Karena itu, Nadhi Hijau menghadirkan ruang belajar yang dekat
+              dengan kehidupan masyarakat Bali—mulai dari mengenali sisa canang
+              dan dedaunan hingga memahami manfaat pengomposan.
+            </p>
+            <p class="mt-[22px]">
+              Berlandaskan nilai Tri Hita Karana, gerakan ini menghubungkan
+              kearifan lokal dengan cara belajar yang interaktif. Tujuannya
+              adalah membantu setiap orang menemukan langkah kecil yang bisa
+              dilakukan untuk menjaga Bali tetap lestari.
+            </p>
           </div>
         </div>
       </section>
 
       <!-- SEJARAH -->
-      <section id="sejarah" class="py-16 tab:py-20 lap:py-[108px] scroll-mt-5 bg-deep border-y border-line" aria-labelledby="history-title">
-        <div class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto grid grid-cols-1 mid:grid-cols-[1fr_1.12fr] gap-[29px] mid:gap-[35px] lap:gap-20 items-start reveal">
+      <section
+        id="sejarah"
+        class="py-16 tab:py-20 lap:py-[108px] scroll-mt-5 bg-deep border-y border-line"
+        aria-labelledby="history-title"
+      >
+        <div
+          class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto grid grid-cols-1 mid:grid-cols-[1fr_1.12fr] gap-[29px] mid:gap-[35px] lap:gap-20 items-start reveal"
+        >
           <div>
-            <div class="text-xs font-semibold tracking-[.12em] tab:tracking-[.16em] flex items-center gap-3 tab:gap-[17px] text-gold mb-5 tab:mb-6">
-              <span class="text-muted text-sm tracking-[.03em] pr-3 tab:pr-[18px] border-r border-line">02</span> SEJARAH
+            <div
+              class="text-xs font-semibold tracking-[.12em] tab:tracking-[.16em] flex items-center gap-3 tab:gap-[17px] text-gold mb-5 tab:mb-6"
+            >
+              <span
+                class="text-muted text-sm tracking-[.03em] pr-3 tab:pr-[18px] border-r border-line"
+                >02</span
+              >
+              SEJARAH
             </div>
-            <h2 id="history-title" class="font-heading text-[2.15rem] tab:text-[clamp(2.1rem,3.2vw,3.1rem)] leading-[1.24] font-medium tracking-[-0.045em]">
-              Dari kepedulian,<br />lahir sebuah <em class="font-display font-normal tracking-[-0.035em]">gagasan.</em>
+            <h2
+              id="history-title"
+              class="font-heading text-[2.15rem] tab:text-[clamp(2.1rem,3.2vw,3.1rem)] leading-[1.24] font-medium tracking-[-0.045em]"
+            >
+              Dari kepedulian,<br />lahir sebuah
+              <em class="font-display font-normal tracking-[-0.035em]"
+                >gagasan.</em
+              >
             </h2>
-            <p class="mt-[23px] text-muted text-sm">Latar belakang gagasan Nadhi Hijau</p>
+            <p class="mt-[23px] text-muted text-sm">
+              Latar belakang gagasan Nadhi Hijau
+            </p>
           </div>
           <div class="text-muted text-base leading-[1.95]">
-            <p>Gagasan Nadhi Hijau berangkat dari pertanyaan sederhana: bagaimana kebiasaan merawat lingkungan dapat berjalan berdampingan dengan budaya dan keseharian masyarakat Bali?</p>
-            <p class="mt-[22px]">Canang, sisa bahan persembahan, dan dedaunan menjadi titik awal pembelajaran dalam website ini. Bahan organik yang telah dipisahkan dari plastik, uang sesari, dan logam dapat dipelajari kembali manfaatnya sebagai bahan kompos. Dari sinilah pemilahan di sumber menjadi inti pesan kampanye.</p>
-            <p class="mt-[22px]">Gagasan tersebut diterjemahkan menjadi ruang edukasi digital yang memadukan filosofi Bali, simulasi setoran, semangat gotong royong antarbanjar, dan permainan ringan. Nadhi Hijau dirancang sebagai ajakan untuk belajar bersama dan membawa pengetahuan itu ke tindakan sehari-hari.</p>
-            <blockquote class="mt-[30px] border-l-2 border-gold py-[6px] pl-[19px] tab:pl-6 text-gold font-display text-[1.35rem] tab:text-2xl italic leading-[1.6]">Perubahan yang baik dimulai dari kepedulian yang dekat.</blockquote>
+            <p>
+              Gagasan Nadhi Hijau berangkat dari pertanyaan sederhana: bagaimana
+              kebiasaan merawat lingkungan dapat berjalan berdampingan dengan
+              budaya dan keseharian masyarakat Bali?
+            </p>
+            <p class="mt-[22px]">
+              Canang, sisa bahan persembahan, dan dedaunan menjadi titik awal
+              pembelajaran dalam website ini. Bahan organik yang telah
+              dipisahkan dari plastik, uang sesari, dan logam dapat dipelajari
+              kembali manfaatnya sebagai bahan kompos. Dari sinilah pemilahan di
+              sumber menjadi inti pesan kampanye.
+            </p>
+            <p class="mt-[22px]">
+              Gagasan tersebut diterjemahkan menjadi ruang edukasi digital yang
+              memadukan filosofi Bali, simulasi setoran, semangat gotong royong
+              antarbanjar, dan permainan ringan. Nadhi Hijau dirancang sebagai
+              ajakan untuk belajar bersama dan membawa pengetahuan itu ke
+              tindakan sehari-hari.
+            </p>
+            <blockquote
+              class="mt-[30px] border-l-2 border-gold py-[6px] pl-[19px] tab:pl-6 text-gold font-display text-[1.35rem] tab:text-2xl italic leading-[1.6]"
+            >
+              Perubahan yang baik dimulai dari kepedulian yang dekat.
+            </blockquote>
           </div>
         </div>
       </section>
 
       <!-- VISI & MISI -->
-      <section id="visi-misi" class="py-16 tab:py-20 lap:py-[108px] scroll-mt-5" aria-label="Visi dan Misi Nadhi Hijau">
-        <div class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto grid grid-cols-1 mid:grid-cols-[.95fr_1.1fr] gap-[29px] mid:gap-[35px] lap:gap-16 items-start reveal">
+      <section
+        id="visi-misi"
+        class="py-16 tab:py-20 lap:py-[108px] scroll-mt-5"
+        aria-label="Visi dan Misi Nadhi Hijau"
+      >
+        <div
+          class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto grid grid-cols-1 mid:grid-cols-[.95fr_1.1fr] gap-[29px] mid:gap-[35px] lap:gap-16 items-start reveal"
+        >
           <!-- Visi -->
-          <div class="p-[25px_22px] tab:p-[26px] lap:p-[35px] bg-raised border border-line rounded-lg">
-            <div class="text-xs font-semibold tracking-[.12em] tab:tracking-[.16em] flex items-center gap-3 tab:gap-[17px] text-gold mb-5 tab:mb-6">
-              <span class="text-muted text-sm tracking-[.03em] pr-3 tab:pr-[18px] border-r border-line">03</span> VISI
+          <div
+            class="p-[25px_22px] tab:p-[26px] lap:p-[35px] bg-raised border border-line rounded-lg"
+          >
+            <div
+              class="text-xs font-semibold tracking-[.12em] tab:tracking-[.16em] flex items-center gap-3 tab:gap-[17px] text-gold mb-5 tab:mb-6"
+            >
+              <span
+                class="text-muted text-sm tracking-[.03em] pr-3 tab:pr-[18px] border-r border-line"
+                >03</span
+              >
+              VISI
             </div>
-            <h2 class="font-heading text-[2.15rem] tab:text-[clamp(2.1rem,3.2vw,3.1rem)] leading-[1.24] font-medium tracking-[-0.045em]">
-              Bali yang hijau,<br />harmoni yang <em class="font-display font-normal tracking-[-0.035em]">terjaga.</em>
+            <h2
+              class="font-heading text-[2.15rem] tab:text-[clamp(2.1rem,3.2vw,3.1rem)] leading-[1.24] font-medium tracking-[-0.045em]"
+            >
+              Bali yang hijau,<br />harmoni yang
+              <em class="font-display font-normal tracking-[-0.035em]"
+                >terjaga.</em
+              >
             </h2>
-            <p class="mt-[27px] text-muted text-base leading-[1.95]">Menjadi ruang edukasi dan ajakan bersama untuk mewujudkan masyarakat Bali yang peduli lingkungan, terbiasa memilah sampah, dan menjaga keseimbangan kehidupan berlandaskan Tri Hita Karana.</p>
+            <p class="mt-[27px] text-muted text-base leading-[1.95]">
+              Menjadi ruang edukasi dan ajakan bersama untuk mewujudkan
+              masyarakat Bali yang peduli lingkungan, terbiasa memilah sampah,
+              dan menjaga keseimbangan kehidupan berlandaskan Tri Hita Karana.
+            </p>
           </div>
           <!-- Misi -->
           <div class="pt-[10px] tab:pt-0">
-            <div class="text-xs font-semibold tracking-[.12em] tab:tracking-[.16em] flex items-center gap-3 tab:gap-[17px] text-gold mb-5 tab:mb-6">
-              <span class="text-muted text-sm tracking-[.03em] pr-3 tab:pr-[18px] border-r border-line">04</span> MISI
+            <div
+              class="text-xs font-semibold tracking-[.12em] tab:tracking-[.16em] flex items-center gap-3 tab:gap-[17px] text-gold mb-5 tab:mb-6"
+            >
+              <span
+                class="text-muted text-sm tracking-[.03em] pr-3 tab:pr-[18px] border-r border-line"
+                >04</span
+              >
+              MISI
             </div>
-            <h2 class="font-heading text-[2.15rem] tab:text-[clamp(2.1rem,3.2vw,3.1rem)] leading-[1.24] font-medium tracking-[-0.045em]">
-              Langkah kecil.<br />Tujuan yang <em class="font-display font-normal tracking-[-0.035em]">sama.</em>
+            <h2
+              class="font-heading text-[2.15rem] tab:text-[clamp(2.1rem,3.2vw,3.1rem)] leading-[1.24] font-medium tracking-[-0.045em]"
+            >
+              Langkah kecil.<br />Tujuan yang
+              <em class="font-display font-normal tracking-[-0.035em]"
+                >sama.</em
+              >
             </h2>
             <ol class="list-none p-0 mt-[29px]">
-              <li class="flex items-start gap-4 tab:gap-5 py-[22px] border-t border-line">
-                <span class="text-xs text-gold pt-[3px]" aria-hidden="true">01</span>
+              <li
+                class="flex items-start gap-4 tab:gap-5 py-[22px] border-t border-line"
+              >
+                <span class="text-xs text-gold pt-[3px]" aria-hidden="true"
+                  >01</span
+                >
                 <div>
-                  <h3 class="font-heading text-base font-semibold leading-[1.6]">Membiasakan pemilahan dari sumber</h3>
-                  <p class="mt-[7px] text-muted text-base leading-[1.85]">Mengajak warga mengenali serta memisahkan sampah organik dan anorganik sejak dari rumah dan tempat kegiatan.</p>
+                  <h3
+                    class="font-heading text-base font-semibold leading-[1.6]"
+                  >
+                    Membiasakan pemilahan dari sumber
+                  </h3>
+                  <p class="mt-[7px] text-muted text-base leading-[1.85]">
+                    Mengajak warga mengenali serta memisahkan sampah organik dan
+                    anorganik sejak dari rumah dan tempat kegiatan.
+                  </p>
                 </div>
               </li>
-              <li class="flex items-start gap-4 tab:gap-5 py-[22px] border-t border-line">
-                <span class="text-xs text-gold pt-[3px]" aria-hidden="true">02</span>
+              <li
+                class="flex items-start gap-4 tab:gap-5 py-[22px] border-t border-line"
+              >
+                <span class="text-xs text-gold pt-[3px]" aria-hidden="true"
+                  >02</span
+                >
                 <div>
-                  <h3 class="font-heading text-base font-semibold leading-[1.6]">Menghidupkan nilai kearifan lokal</h3>
-                  <p class="mt-[7px] text-muted text-base leading-[1.85]">Menghubungkan semangat Tri Hita Karana dengan kebiasaan merawat lingkungan dalam kehidupan Bali masa kini.</p>
+                  <h3
+                    class="font-heading text-base font-semibold leading-[1.6]"
+                  >
+                    Menghidupkan nilai kearifan lokal
+                  </h3>
+                  <p class="mt-[7px] text-muted text-base leading-[1.85]">
+                    Menghubungkan semangat Tri Hita Karana dengan kebiasaan
+                    merawat lingkungan dalam kehidupan Bali masa kini.
+                  </p>
                 </div>
               </li>
-              <li class="flex items-start gap-4 tab:gap-5 py-[22px] border-t border-line">
-                <span class="text-xs text-gold pt-[3px]" aria-hidden="true">03</span>
+              <li
+                class="flex items-start gap-4 tab:gap-5 py-[22px] border-t border-line"
+              >
+                <span class="text-xs text-gold pt-[3px]" aria-hidden="true"
+                  >03</span
+                >
                 <div>
-                  <h3 class="font-heading text-base font-semibold leading-[1.6]">Menguatkan gotong royong banjar</h3>
-                  <p class="mt-[7px] text-muted text-base leading-[1.85]">Mendorong warga untuk saling mengajak, berbagi pengetahuan, dan merawat ruang bersama secara konsisten.</p>
+                  <h3
+                    class="font-heading text-base font-semibold leading-[1.6]"
+                  >
+                    Menguatkan gotong royong banjar
+                  </h3>
+                  <p class="mt-[7px] text-muted text-base leading-[1.85]">
+                    Mendorong warga untuk saling mengajak, berbagi pengetahuan,
+                    dan merawat ruang bersama secara konsisten.
+                  </p>
                 </div>
               </li>
-              <li class="flex items-start gap-4 tab:gap-5 py-[22px] border-t border-line">
-                <span class="text-xs text-gold pt-[3px]" aria-hidden="true">04</span>
+              <li
+                class="flex items-start gap-4 tab:gap-5 py-[22px] border-t border-line"
+              >
+                <span class="text-xs text-gold pt-[3px]" aria-hidden="true"
+                  >04</span
+                >
                 <div>
-                  <h3 class="font-heading text-base font-semibold leading-[1.6]">Membuat edukasi mudah dipahami</h3>
-                  <p class="mt-[7px] text-muted text-base leading-[1.85]">Menyediakan panduan, simulasi, dan permainan interaktif agar pengetahuan tentang sampah lebih mudah diterapkan sehari-hari.</p>
+                  <h3
+                    class="font-heading text-base font-semibold leading-[1.6]"
+                  >
+                    Membuat edukasi mudah dipahami
+                  </h3>
+                  <p class="mt-[7px] text-muted text-base leading-[1.85]">
+                    Menyediakan panduan, simulasi, dan permainan interaktif agar
+                    pengetahuan tentang sampah lebih mudah diterapkan
+                    sehari-hari.
+                  </p>
                 </div>
               </li>
             </ol>
@@ -371,37 +1079,72 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="border-t border-line bg-deep">
-      <div class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto flex flex-wrap mid:flex-nowrap justify-between items-center gap-[25px] tab:gap-[30px] py-[31px] tab:py-10">
-        <a class="brand flex gap-2.5 items-center whitespace-nowrap font-heading text-[1.12rem] tracking-[.055em] font-extrabold leading-[1.2]" href="index.html">
-          <span class="brand-mark w-[35px] h-10 grid place-items-center text-[#d6e9a4]">
+      <div
+        class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto flex flex-wrap mid:flex-nowrap justify-between items-center gap-[25px] tab:gap-[30px] py-[31px] tab:py-10"
+      >
+        <a
+          class="brand flex gap-2.5 items-center whitespace-nowrap font-heading text-[1.12rem] tracking-[.055em] font-extrabold leading-[1.2]"
+          href="index.html"
+        >
+          <span
+            class="brand-mark w-[35px] h-10 grid place-items-center text-[#d6e9a4]"
+          >
             <svg class="icon w-8 h-8"><use href="#i-leaf" /></svg>
           </span>
-          <span>NADHI<span class="font-normal ml-[3px]">HIJAU</span>
-            <small class="font-body block text-xs tracking-[.15em] font-medium opacity-70 mt-[7px]">RAWAT BALI, RAWAT KEHIDUPAN</small>
+          <span
+            >NADHI<span class="font-normal ml-[3px]">HIJAU</span>
+            <small
+              class="font-body block text-xs tracking-[.15em] font-medium opacity-70 mt-[7px]"
+              >RAWAT BALI, RAWAT KEHIDUPAN</small
+            >
           </span>
         </a>
-        <p class="text-sm tab:text-base text-muted leading-[1.8] mr-auto mid:ml-[70px] tab:ml-0 tab:mr-auto">Berakar pada budaya.<br />Bertumbuh bersama alam.</p>
-        <a href="#main" class="flex items-center gap-4 text-xs text-muted w-full mid:w-auto justify-between mid:justify-start border-t mid:border-t-0 border-line pt-[18px] mid:pt-0">
-          Kembali ke atas <svg class="icon w-[17px] rotate-180"><use href="#i-down" /></svg>
+        <p
+          class="text-sm tab:text-base text-muted leading-[1.8] mr-auto mid:ml-[70px] tab:ml-0 tab:mr-auto"
+        >
+          Berakar pada budaya.<br />Bertumbuh bersama alam.
+        </p>
+        <a
+          href="#main"
+          class="flex items-center gap-4 text-xs text-muted w-full mid:w-auto justify-between mid:justify-start border-t mid:border-t-0 border-line pt-[18px] mid:pt-0"
+        >
+          Kembali ke atas
+          <svg class="icon w-[17px] rotate-180"><use href="#i-down" /></svg>
         </a>
       </div>
-      <div class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto flex flex-col tab:flex-row justify-between gap-[9px] tab:gap-5 py-5 tab:py-[23px] border-t border-line text-xs text-muted">
-        <span>© <span id="copyright-year">2026</span> Nadhi Hijau. Sebuah gagasan untuk Bali.</span>
-        <span>Tri Hita Karana <i class="mx-[9px] not-italic">·</i> Bali, Indonesia</span>
+      <div
+        class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto flex flex-col tab:flex-row justify-between gap-[9px] tab:gap-5 py-5 tab:py-[23px] border-t border-line text-xs text-muted"
+      >
+        <span
+          >© <span id="copyright-year">2026</span> Nadhi Hijau. Sebuah gagasan
+          untuk Bali.</span
+        >
+        <span
+          >Tri Hita Karana <i class="mx-[9px] not-italic">·</i> Bali,
+          Indonesia</span
+        >
       </div>
     </footer>
 
     <!-- ========== DIALOG ========== -->
     <dialog id="info-dialog" aria-labelledby="dialog-title">
       <div class="dialog-shell">
-        <button id="dialog-close" class="dialog-close inline-flex items-center justify-center rounded-full border border-line" type="button" aria-label="Tutup pop-up">
+        <button
+          id="dialog-close"
+          class="dialog-close inline-flex items-center justify-center rounded-full border border-line"
+          type="button"
+          aria-label="Tutup pop-up"
+        >
           <svg class="icon"><use href="#i-close" /></svg>
         </button>
         <div id="dialog-content"></div>
       </div>
     </dialog>
     <noscript>
-      <div class="no-js">Aktifkan JavaScript untuk kalkulator, countdown, pop-up, dan permainan. Konten kampanye tetap dapat dibaca.</div>
+      <div class="no-js">
+        Aktifkan JavaScript untuk kalkulator, countdown, pop-up, dan permainan.
+        Konten kampanye tetap dapat dibaca.
+      </div>
     </noscript>
   </body>
 </html>

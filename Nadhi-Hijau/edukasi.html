@@ -1,269 +1,428 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" data-theme="dark" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#071f19">
-  <title>Ruang Belajar — Nadhi Hijau</title>
-  <meta name="description" content="Rawat Bali dengan langkah sederhana. Pelajari Tri Hita Karana, simulasikan setoran sampah organik, dan bergerak bersama banjar untuk lingkungan yang lebih hijau.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230b3025'/%3E%3Cpath d='M11 28C6 14 21 8 30 9c1 16-6 24-17 17M12 28l12-12' fill='none' stroke='%23d2dfa1' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-  <script>
-    try { const t = new URLSearchParams(location.search).get('tema') || localStorage.getItem('nadhi.theme'); if (t === 'light' || t === 'dark') { document.documentElement.dataset.theme = t; document.documentElement.classList.toggle('dark', t === 'dark'); } } catch (_) {}
-  </script>
-  <script src="https://cdn.tailwindcss.com" async onload="tailwind.config = { corePlugins: { preflight: false } }">
-</script>
-  <link rel="stylesheet" href="styles.css">
-  <script src="game-data.js" defer></script>
-  <script src="app.js" defer>
-</script>
-</head>
-<body data-page="edukasi" class="inner-page">
-  <a class="skip-link" href="#main">Langsung ke konten</a>
-  <svg xmlns="http://www.w3.org/2000/svg" class="icon-defs" aria-hidden="true">
-<defs>
-    <symbol id="i-leaf" viewBox="0 0 24 24">
-<path d="M5 19C1 8 12 3 21 3c0 12-5 19-15 14M4 21 16 9"/>
-</symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24">
-<path d="M5 12h14m-6-6 6 6-6 6"/>
-</symbol>
-    <symbol id="i-down" viewBox="0 0 24 24">
-<path d="M12 4v16m-6-6 6 6 6-6"/>
-</symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24">
-<circle cx="12" cy="12" r="4"/>
-<path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/>
-</symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24">
-<path d="M20 14a8.5 8.5 0 0 1-10-10A8.5 8.5 0 1 0 20 14Z"/>
-</symbol>
-    <symbol id="i-flower" viewBox="0 0 24 24">
-<path d="M9 8C4 0 0 10 7 11c-8 2-2 11 3 5 0 8 10 5 6-2 8 3 9-8 1-6 3-8-7-9-8 0Z"/>
-<circle cx="12" cy="11" r="2"/>
-</symbol>
-    <symbol id="i-coins" viewBox="0 0 24 24">
-<ellipse cx="10" cy="6" rx="7" ry="3"/>
-<path d="M3 6v5c0 4 14 4 14 0V6M3 11v5c0 4 14 4 14 0v-5M17 10c6 0 5 6 5 8s-5 4-9 3"/>
-</symbol>
-    <symbol id="i-people" viewBox="0 0 24 24">
-<circle cx="9" cy="7" r="3"/>
-<path d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 5v2"/>
-</symbol>
-    <symbol id="i-cycle" viewBox="0 0 24 24">
-<path d="m8 4 4-2 4 7m-1-5 1 5-5-1m9 5 2 4-8 4m6-3-6 3v-5M5 20H2V11m1 4-1-4 5 1M4 8l3-5"/>
-</symbol>
-    <symbol id="i-cup" viewBox="0 0 24 24">
-<path d="M7 3h10v7a5 5 0 0 1-10 0V3Zm0 2H3v3a4 4 0 0 0 4 4m10-7h4v3a4 4 0 0 1-4 4m-5 3v5m-4 1h8"/>
-</symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24">
-<circle cx="12" cy="12" r="9"/>
-<path d="M12 7v5l3 2"/>
-</symbol>
-    <symbol id="i-check" viewBox="0 0 24 24">
-<path d="m5 12 4 4L19 6"/>
-</symbol>
-    <symbol id="i-close" viewBox="0 0 24 24">
-<path d="m6 6 12 12M6 18 18 6"/>
-</symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24">
-<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/>
-<circle cx="12" cy="10" r="2.5"/>
-</symbol>
-    <symbol id="i-calendar" viewBox="0 0 24 24">
-<rect x="3" y="5" width="18" height="16" rx="2"/>
-<path d="M7 3v4m10-4v4M3 11h18M7 15h2m4 0h2m-8 3h2"/>
-</symbol>
-    <symbol id="i-game" viewBox="0 0 24 24">
-<path d="M6 7h12c3 0 6 13 2 13-2 0-3-4-5-4H9c-2 0-3 4-5 4C0 20 3 7 6 7Zm1 3v5m-2-2h4m7-2h.01M19 14h.01"/>
-</symbol>
-    <symbol id="i-info" viewBox="0 0 24 24">
-<circle cx="12" cy="12" r="9"/>
-<path d="M12 11v6m0-10v.01"/>
-</symbol>
-    <symbol id="i-bottle" viewBox="0 0 24 24">
-<path d="M9 2h6v4l2 3v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3V2Zm-2 9h10M7 17h10"/>
-</symbol>
-    <symbol id="i-fruit" viewBox="0 0 24 24"><path d="M12 7c-4-4-10 0-8 7 1 5 5 8 8 5 3 3 7 0 8-5 2-7-4-11-8-7Z"/><path d="M12 7c0-4 2-5 5-5M12 7 9 3"/></symbol>
-    <symbol id="i-mug" viewBox="0 0 24 24"><path d="M4 8h12v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4ZM16 9h2a3 3 0 0 1 0 6h-2M7 3v2M12 3v2"/></symbol>
-    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21V11M12 14C5 14 3 10 3 5c6 0 9 3 9 9ZM12 11c0-6 4-8 9-8 0 5-3 8-9 8ZM7 21h10"/></symbol>
-    <symbol id="i-egg" viewBox="0 0 24 24"><path d="M20 14c0 5-3.5 8-8 8s-8-3-8-8S8 2 12 2s8 7 8 12ZM5 13l5 2 3-4 6 3"/></symbol>
-    <symbol id="i-can" viewBox="0 0 24 24"><ellipse cx="12" cy="4" rx="6" ry="2"/><path d="M6 4v16c0 3 12 3 12 0V4M6 9h12M6 17h12M10 4h4"/></symbol>
-    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 7h14l2 14H3ZM8 7V5a4 4 0 0 1 8 0v2"/></symbol>
-    <symbol id="i-packet" viewBox="0 0 24 24"><path d="M5 2h14l-1 5 1 10-1 5H6l-1-5 1-10ZM6 6h12M6 18h12M9 10h6M9 14h4"/></symbol>
-    <symbol id="i-straw" viewBox="0 0 24 24"><path d="M6 3h9v18h3V1H6ZM12 1v3M15 5h3M15 8h3"/></symbol>
-  </defs>
-</svg>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071f19" />
+    <title>Ruang Belajar — Nadhi Hijau</title>
+    <meta
+      name="description"
+      content="Rawat Bali dengan langkah sederhana. Pelajari Tri Hita Karana, simulasikan setoran sampah organik, dan bergerak bersama banjar untuk lingkungan yang lebih hijau."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230b3025'/%3E%3Cpath d='M11 28C6 14 21 8 30 9c1 16-6 24-17 17M12 28l12-12' fill='none' stroke='%23d2dfa1' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        const t =
+          new URLSearchParams(location.search).get("tema") ||
+          localStorage.getItem("nadhi.theme");
+        if (t === "light" || t === "dark") {
+          document.documentElement.dataset.theme = t;
+          document.documentElement.classList.toggle("dark", t === "dark");
+        }
+      } catch (_) {}
+    </script>
+    <script
+      src="https://cdn.tailwindcss.com"
+      async
+      onload="tailwind.config = { corePlugins: { preflight: false } }"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="game-data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="edukasi" class="inner-page">
+    <a class="skip-link" href="#main">Langsung ke konten</a>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon-defs"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="i-leaf" viewBox="0 0 24 24">
+          <path d="M5 19C1 8 12 3 21 3c0 12-5 19-15 14M4 21 16 9" />
+        </symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="i-down" viewBox="0 0 24 24">
+          <path d="M12 4v16m-6-6 6 6 6-6" />
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+          />
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+          <path d="M20 14a8.5 8.5 0 0 1-10-10A8.5 8.5 0 1 0 20 14Z" />
+        </symbol>
+        <symbol id="i-flower" viewBox="0 0 24 24">
+          <path
+            d="M9 8C4 0 0 10 7 11c-8 2-2 11 3 5 0 8 10 5 6-2 8 3 9-8 1-6 3-8-7-9-8 0Z"
+          />
+          <circle cx="12" cy="11" r="2" />
+        </symbol>
+        <symbol id="i-coins" viewBox="0 0 24 24">
+          <ellipse cx="10" cy="6" rx="7" ry="3" />
+          <path
+            d="M3 6v5c0 4 14 4 14 0V6M3 11v5c0 4 14 4 14 0v-5M17 10c6 0 5 6 5 8s-5 4-9 3"
+          />
+        </symbol>
+        <symbol id="i-people" viewBox="0 0 24 24">
+          <circle cx="9" cy="7" r="3" />
+          <path
+            d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 5v2"
+          />
+        </symbol>
+        <symbol id="i-cycle" viewBox="0 0 24 24">
+          <path
+            d="m8 4 4-2 4 7m-1-5 1 5-5-1m9 5 2 4-8 4m6-3-6 3v-5M5 20H2V11m1 4-1-4 5 1M4 8l3-5"
+          />
+        </symbol>
+        <symbol id="i-cup" viewBox="0 0 24 24">
+          <path
+            d="M7 3h10v7a5 5 0 0 1-10 0V3Zm0 2H3v3a4 4 0 0 0 4 4m10-7h4v3a4 4 0 0 1-4 4m-5 3v5m-4 1h8"
+          />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path d="m5 12 4 4L19 6" />
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 24 24">
+          <path d="m6 6 12 12M6 18 18 6" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+          <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" />
+          <circle cx="12" cy="10" r="2.5" />
+        </symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="16" rx="2" />
+          <path d="M7 3v4m10-4v4M3 11h18M7 15h2m4 0h2m-8 3h2" />
+        </symbol>
+        <symbol id="i-game" viewBox="0 0 24 24">
+          <path
+            d="M6 7h12c3 0 6 13 2 13-2 0-3-4-5-4H9c-2 0-3 4-5 4C0 20 3 7 6 7Zm1 3v5m-2-2h4m7-2h.01M19 14h.01"
+          />
+        </symbol>
+        <symbol id="i-info" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 11v6m0-10v.01" />
+        </symbol>
+        <symbol id="i-bottle" viewBox="0 0 24 24">
+          <path
+            d="M9 2h6v4l2 3v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3V2Zm-2 9h10M7 17h10"
+          />
+        </symbol>
+        <symbol id="i-fruit" viewBox="0 0 24 24">
+          <path d="M12 7c-4-4-10 0-8 7 1 5 5 8 8 5 3 3 7 0 8-5 2-7-4-11-8-7Z" />
+          <path d="M12 7c0-4 2-5 5-5M12 7 9 3" />
+        </symbol>
+        <symbol id="i-mug" viewBox="0 0 24 24">
+          <path
+            d="M4 8h12v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4ZM16 9h2a3 3 0 0 1 0 6h-2M7 3v2M12 3v2"
+          />
+        </symbol>
+        <symbol id="i-sprout" viewBox="0 0 24 24">
+          <path
+            d="M12 21V11M12 14C5 14 3 10 3 5c6 0 9 3 9 9ZM12 11c0-6 4-8 9-8 0 5-3 8-9 8ZM7 21h10"
+          />
+        </symbol>
+        <symbol id="i-egg" viewBox="0 0 24 24">
+          <path
+            d="M20 14c0 5-3.5 8-8 8s-8-3-8-8S8 2 12 2s8 7 8 12ZM5 13l5 2 3-4 6 3"
+          />
+        </symbol>
+        <symbol id="i-can" viewBox="0 0 24 24">
+          <ellipse cx="12" cy="4" rx="6" ry="2" />
+          <path d="M6 4v16c0 3 12 3 12 0V4M6 9h12M6 17h12M10 4h4" />
+        </symbol>
+        <symbol id="i-bag" viewBox="0 0 24 24">
+          <path d="M5 7h14l2 14H3ZM8 7V5a4 4 0 0 1 8 0v2" />
+        </symbol>
+        <symbol id="i-packet" viewBox="0 0 24 24">
+          <path
+            d="M5 2h14l-1 5 1 10-1 5H6l-1-5 1-10ZM6 6h12M6 18h12M9 10h6M9 14h4"
+          />
+        </symbol>
+        <symbol id="i-straw" viewBox="0 0 24 24">
+          <path d="M6 3h9v18h3V1H6ZM12 1v3M15 5h3M15 8h3" />
+        </symbol>
+      </defs>
+    </svg>
 
-  <header class="site-header" id="site-header">
-    <div class="nav-shell flex items-center justify-between">
-      <a href="index.html" class="brand" aria-label="Nadhi Hijau, beranda">
-<span class="brand-mark">
-<svg class="icon">
-<use href="#i-leaf"/>
-</svg>
-</span>
-<span>NADHI<span class="brand-light">HIJAU</span>
-<small>RAWAT BALI, RAWAT KEHIDUPAN</small>
-</span>
-</a>
-      <nav class="desktop-nav" aria-label="Navigasi utama">
-<a href="index.html">Beranda</a>
-<a href="filosofi.html">Filosofi</a>
-<a href="kalkulator.html">Aksi Hijau</a>
-<a href="leaderboard.html">Leaderboard</a>
-<a href="galeri.html">Galeri</a>
-<a href="pengumuman.html">Info Banjar</a>
-</nav>
-      <div class="nav-actions">
-<button class="theme-toggle icon-button" id="theme-toggle" type="button" aria-label="Aktifkan tema terang" title="Ganti tema">
-<svg class="icon theme-sun">
-<use href="#i-sun"/>
-</svg>
-<svg class="icon theme-moon">
-<use href="#i-moon"/>
-</svg>
-</button>
-<a class="nav-cta active" aria-current="page" href="edukasi.html">Ruang Belajar <svg class="icon">
-<use href="#i-arrow"/>
-</svg>
-</a>
-<button id="menu-toggle" class="menu-toggle icon-button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-nav">
-<span>
-</span>
-<span>
-</span>
-</button>
-</div>
-    </div>
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Navigasi ponsel" hidden>
-<a href="index.html">Beranda</a>
-<a href="filosofi.html">Filosofi</a>
-<a href="kalkulator.html">Aksi Hijau</a>
-<a href="leaderboard.html">Leaderboard</a>
-<a href="galeri.html">Galeri</a>
-<a href="pengumuman.html">Info Banjar</a>
-<a href="edukasi.html" class="active" aria-current="page">Ruang Belajar</a>
-</nav>
-  </header>
+    <header class="site-header" id="site-header">
+      <div class="nav-shell flex items-center justify-between">
+        <a href="index.html" class="brand" aria-label="Nadhi Hijau, beranda">
+          <span class="brand-mark">
+            <svg class="icon">
+              <use href="#i-leaf" />
+            </svg>
+          </span>
+          <span
+            >NADHI<span class="brand-light">HIJAU</span>
+            <small>RAWAT BALI, RAWAT KEHIDUPAN</small>
+          </span>
+        </a>
+        <nav class="desktop-nav" aria-label="Navigasi utama">
+          <a href="index.html">Beranda</a>
+          <a href="filosofi.html">Filosofi</a>
+          <a href="kalkulator.html">Aksi Hijau</a>
+          <a href="leaderboard.html">Leaderboard</a>
+          <a href="galeri.html">Galeri</a>
+          <a href="pengumuman.html">Info Banjar</a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle icon-button"
+            id="theme-toggle"
+            type="button"
+            aria-label="Aktifkan tema terang"
+            title="Ganti tema"
+          >
+            <svg class="icon theme-sun">
+              <use href="#i-sun" />
+            </svg>
+            <svg class="icon theme-moon">
+              <use href="#i-moon" />
+            </svg>
+          </button>
+          <a class="nav-cta active" aria-current="page" href="edukasi.html"
+            >Ruang Belajar
+            <svg class="icon">
+              <use href="#i-arrow" />
+            </svg>
+          </a>
+          <button
+            id="menu-toggle"
+            class="menu-toggle icon-button"
+            aria-label="Buka menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <span> </span>
+            <span> </span>
+          </button>
+        </div>
+      </div>
+      <nav
+        id="mobile-nav"
+        class="mobile-nav"
+        aria-label="Navigasi ponsel"
+        hidden
+      >
+        <a href="index.html">Beranda</a>
+        <a href="filosofi.html">Filosofi</a>
+        <a href="kalkulator.html">Aksi Hijau</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="pengumuman.html">Info Banjar</a>
+        <a href="edukasi.html" class="active" aria-current="page"
+          >Ruang Belajar</a
+        >
+      </nav>
+    </header>
 
-  <main id="main">
-<section id="edukasi" class="section game-section">
-<div class="container">
-<div class="section-heading reveal">
-<div>
-<div class="eyebrow">
-<span class="section-num">06</span> BELAJAR LEWAT HAL SEDERHANA</div>
-<h2>Main sebentar.<br>Peduli <em>selamanya.</em>
-</h2>
-</div>
-<p class="heading-aside">Kenali sampahmu, uji pengetahuanmu.<br>Kebiasaan baik bisa dimulai dari sini.</p>
-</div>
-<div class="game-panel reveal">
-<div class="game-tabs" role="tablist" aria-label="Pilihan permainan">
-<button id="tab-sort" type="button" role="tab" aria-selected="true" aria-controls="game-sort" tabindex="0">01 <span>Pilah Sampah</span>
-</button>
-<button id="tab-quiz" type="button" role="tab" aria-selected="false" aria-controls="game-quiz" tabindex="-1">02 <span>Kuis Hijau</span>
-</button>
-</div>
-<div id="game-sort" role="tabpanel" aria-labelledby="tab-sort" tabindex="0">
-<div class="game-header">
-<div>
-<h3>Masuk ke tempat yang mana?</h3>
-<p>Seret kartu ke wadah, atau ketuk kartu lalu wadahnya. Delapan kartu dari 24 jenis akan diacak setiap ronde.</p>
-</div>
-<span class="score-badge" id="sort-score">0 / 8 terpilah</span>
-</div>
-<div class="sort-items" id="sort-items" role="group" aria-label="Kartu sampah">
-</div>
-<div class="bins">
-<button class="bin organic" type="button" data-bin="organik">
-<svg class="icon">
-<use href="#i-leaf"/>
-</svg>
-<strong>Organik</strong>
-<span>Sisa alami yang dapat terurai</span>
-<small>Letakkan atau pilih di sini</small>
-</button>
-<button class="bin inorganic" type="button" data-bin="anorganik">
-<svg class="icon">
-<use href="#i-cycle"/>
-</svg>
-<strong>Anorganik</strong>
-<span>Plastik, logam, dan kaca</span>
-<small>Letakkan atau pilih di sini</small>
-</button>
-</div>
-<div class="game-footer">
-<p id="sort-feedback" aria-live="polite">Delapan benda, satu kebiasaan baik. Yuk, mulai!</p>
-<button type="button" id="sort-restart" class="text-link">Ulangi permainan <svg class="icon">
-<use href="#i-cycle"/>
-</svg>
-</button>
-</div>
-</div>
-<div id="game-quiz" role="tabpanel" aria-labelledby="tab-quiz" tabindex="0" hidden>
-<div class="game-header">
-<div>
-<h3>Seberapa hijau pengetahuanmu?</h3>
-<p>Lima soal dari 18 pertanyaan. Soal dan pilihan jawaban diacak setiap kali kamu bermain lagi.</p>
-</div>
-<span id="quiz-progress" class="score-badge">1 / 5</span>
-</div>
-<div id="quiz-content">
-</div>
-<div class="quiz-reset-row"><button type="button" id="quiz-reset" class="text-link">Acak ulang kuis <svg class="icon" aria-hidden="true"><use href="#i-cycle"/></svg></button></div>
-</div>
-</div>
-<div class="closing-line">
-<svg class="icon">
-<use href="#i-leaf"/>
-</svg>
-<p>Alam sudah memberi banyak.<br>Sekarang, giliran <em>kita merawat.</em>
-</p>
-</div>
-</div>
-</section>
-  </main>
+    <main id="main">
+      <section id="edukasi" class="section game-section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">
+                <span class="section-num">06</span> BELAJAR LEWAT HAL SEDERHANA
+              </div>
+              <h2>Main sebentar.<br />Peduli <em>selamanya.</em></h2>
+            </div>
+            <p class="heading-aside">
+              Kenali sampahmu, uji pengetahuanmu.<br />Kebiasaan baik bisa
+              dimulai dari sini.
+            </p>
+          </div>
+          <div class="game-panel reveal">
+            <div
+              class="game-tabs"
+              role="tablist"
+              aria-label="Pilihan permainan"
+            >
+              <button
+                id="tab-sort"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="game-sort"
+                tabindex="0"
+              >
+                01 <span>Pilah Sampah</span>
+              </button>
+              <button
+                id="tab-quiz"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="game-quiz"
+                tabindex="-1"
+              >
+                02 <span>Kuis Hijau</span>
+              </button>
+            </div>
+            <div
+              id="game-sort"
+              role="tabpanel"
+              aria-labelledby="tab-sort"
+              tabindex="0"
+            >
+              <div class="game-header">
+                <div>
+                  <h3>Masuk ke tempat yang mana?</h3>
+                  <p>
+                    Seret kartu ke wadah, atau ketuk kartu lalu wadahnya.
+                    Delapan kartu dari 24 jenis akan diacak setiap ronde.
+                  </p>
+                </div>
+                <span class="score-badge" id="sort-score">0 / 8 terpilah</span>
+              </div>
+              <div
+                class="sort-items"
+                id="sort-items"
+                role="group"
+                aria-label="Kartu sampah"
+              ></div>
+              <div class="bins">
+                <button class="bin organic" type="button" data-bin="organik">
+                  <svg class="icon">
+                    <use href="#i-leaf" />
+                  </svg>
+                  <strong>Organik</strong>
+                  <span>Sisa alami yang dapat terurai</span>
+                  <small>Letakkan atau pilih di sini</small>
+                </button>
+                <button
+                  class="bin inorganic"
+                  type="button"
+                  data-bin="anorganik"
+                >
+                  <svg class="icon">
+                    <use href="#i-cycle" />
+                  </svg>
+                  <strong>Anorganik</strong>
+                  <span>Plastik, logam, dan kaca</span>
+                  <small>Letakkan atau pilih di sini</small>
+                </button>
+              </div>
+              <div class="game-footer">
+                <p id="sort-feedback" aria-live="polite">
+                  Delapan benda, satu kebiasaan baik. Yuk, mulai!
+                </p>
+                <button type="button" id="sort-restart" class="text-link">
+                  Ulangi permainan
+                  <svg class="icon">
+                    <use href="#i-cycle" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div
+              id="game-quiz"
+              role="tabpanel"
+              aria-labelledby="tab-quiz"
+              tabindex="0"
+              hidden
+            >
+              <div class="game-header">
+                <div>
+                  <h3>Seberapa hijau pengetahuanmu?</h3>
+                  <p>
+                    Lima soal dari 18 pertanyaan. Soal dan pilihan jawaban
+                    diacak setiap kali kamu bermain lagi.
+                  </p>
+                </div>
+                <span id="quiz-progress" class="score-badge">1 / 5</span>
+              </div>
+              <div id="quiz-content"></div>
+              <div class="quiz-reset-row">
+                <button type="button" id="quiz-reset" class="text-link">
+                  Acak ulang kuis
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#i-cycle" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="closing-line">
+            <svg class="icon">
+              <use href="#i-leaf" />
+            </svg>
+            <p>
+              Alam sudah memberi banyak.<br />Sekarang, giliran
+              <em>kita merawat.</em>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <footer class="site-footer">
-<div class="container footer-top">
-<a class="brand" href="index.html">
-<span class="brand-mark">
-<svg class="icon">
-<use href="#i-leaf"/>
-</svg>
-</span>
-<span>NADHI<span class="brand-light">HIJAU</span>
-<small>RAWAT BALI, RAWAT KEHIDUPAN</small>
-</span>
-</a>
-<p>Berakar pada budaya.<br>Bertumbuh bersama alam.</p>
-<a href="#main" class="back-top">Kembali ke atas <svg class="icon">
-<use href="#i-down"/>
-</svg>
-</a>
-</div>
-<div class="container footer-bottom">
-<span>© <span id="copyright-year">2026</span> Nadhi Hijau. Sebuah gagasan untuk Bali.</span>
-<span>Tri Hita Karana <i>·</i> Bali, Indonesia</span>
-</div>
-</footer>
-  <dialog id="info-dialog" aria-labelledby="dialog-title">
-<div class="dialog-shell">
-<button id="dialog-close" class="icon-button dialog-close" type="button" aria-label="Tutup pop-up">
-<svg class="icon">
-<use href="#i-close"/>
-</svg>
-</button>
-<div id="dialog-content">
-</div>
-</div>
-</dialog>
-  <noscript>
-<div class="no-js">Aktifkan JavaScript untuk kalkulator, countdown, pop-up, dan permainan. Konten kampanye tetap dapat dibaca.</div>
-</noscript>
-</body>
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">
+            <svg class="icon">
+              <use href="#i-leaf" />
+            </svg>
+          </span>
+          <span
+            >NADHI<span class="brand-light">HIJAU</span>
+            <small>RAWAT BALI, RAWAT KEHIDUPAN</small>
+          </span>
+        </a>
+        <p>Berakar pada budaya.<br />Bertumbuh bersama alam.</p>
+        <a href="#main" class="back-top"
+          >Kembali ke atas
+          <svg class="icon">
+            <use href="#i-down" />
+          </svg>
+        </a>
+      </div>
+      <div class="container footer-bottom">
+        <span
+          >© <span id="copyright-year">2026</span> Nadhi Hijau. Sebuah gagasan
+          untuk Bali.</span
+        >
+        <span>Tri Hita Karana <i>·</i> Bali, Indonesia</span>
+      </div>
+    </footer>
+    <dialog id="info-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-shell">
+        <button
+          id="dialog-close"
+          class="icon-button dialog-close"
+          type="button"
+          aria-label="Tutup pop-up"
+        >
+          <svg class="icon">
+            <use href="#i-close" />
+          </svg>
+        </button>
+        <div id="dialog-content"></div>
+      </div>
+    </dialog>
+    <noscript>
+      <div class="no-js">
+        Aktifkan JavaScript untuk kalkulator, countdown, pop-up, dan permainan.
+        Konten kampanye tetap dapat dibaca.
+      </div>
+    </noscript>
+  </body>
 </html>
