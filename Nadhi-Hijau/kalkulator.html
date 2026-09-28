@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="id" data-theme="dark" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071f19" />
+    <title>Aksi Hijau — Nadhi Hijau</title>
+    <meta
+      name="description"
+      content="Rawat Bali dengan langkah sederhana. Pelajari Tri Hita Karana, simulasikan setoran sampah organik, dan bergerak bersama banjar untuk lingkungan yang lebih hijau."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230b3025'/%3E%3Cpath d='M11 28C6 14 21 8 30 9c1 16-6 24-17 17M12 28l12-12' fill='none' stroke='%23d2dfa1' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        const t =
+          new URLSearchParams(location.search).get("tema") ||
+          localStorage.getItem("nadhi.theme");
+        if (t === "light" || t === "dark") {
+          document.documentElement.dataset.theme = t;
+          document.documentElement.classList.toggle("dark", t === "dark");
+        }
+      } catch (_) {}
+    </script>
+    <script
+      src="https://cdn.tailwindcss.com"
+      async
+      onload="tailwind.config = { corePlugins: { preflight: false } }"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="kalkulator" class="inner-page">
+    <a class="skip-link" href="#main">Langsung ke konten</a>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon-defs"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="i-leaf" viewBox="0 0 24 24">
+          <path d="M5 19C1 8 12 3 21 3c0 12-5 19-15 14M4 21 16 9" />
+        </symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="i-down" viewBox="0 0 24 24">
+          <path d="M12 4v16m-6-6 6 6 6-6" />
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+          />
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+          <path d="M20 14a8.5 8.5 0 0 1-10-10A8.5 8.5 0 1 0 20 14Z" />
+        </symbol>
+        <symbol id="i-flower" viewBox="0 0 24 24">
+          <path
+            d="M9 8C4 0 0 10 7 11c-8 2-2 11 3 5 0 8 10 5 6-2 8 3 9-8 1-6 3-8-7-9-8 0Z"
+          />
+          <circle cx="12" cy="11" r="2" />
+        </symbol>
+        <symbol id="i-coins" viewBox="0 0 24 24">
+          <ellipse cx="10" cy="6" rx="7" ry="3" />
+          <path
+            d="M3 6v5c0 4 14 4 14 0V6M3 11v5c0 4 14 4 14 0v-5M17 10c6 0 5 6 5 8s-5 4-9 3"
+          />
+        </symbol>
+        <symbol id="i-people" viewBox="0 0 24 24">
+          <circle cx="9" cy="7" r="3" />
+          <path
+            d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 5v2"
+          />
+        </symbol>
+        <symbol id="i-cycle" viewBox="0 0 24 24">
+          <path
+            d="m8 4 4-2 4 7m-1-5 1 5-5-1m9 5 2 4-8 4m6-3-6 3v-5M5 20H2V11m1 4-1-4 5 1M4 8l3-5"
+          />
+        </symbol>
+        <symbol id="i-cup" viewBox="0 0 24 24">
+          <path
+            d="M7 3h10v7a5 5 0 0 1-10 0V3Zm0 2H3v3a4 4 0 0 0 4 4m10-7h4v3a4 4 0 0 1-4 4m-5 3v5m-4 1h8"
+          />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path d="m5 12 4 4L19 6" />
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 24 24">
+          <path d="m6 6 12 12M6 18 18 6" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+          <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" />
+          <circle cx="12" cy="10" r="2.5" />
+        </symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="16" rx="2" />
+          <path d="M7 3v4m10-4v4M3 11h18M7 15h2m4 0h2m-8 3h2" />
+        </symbol>
+        <symbol id="i-game" viewBox="0 0 24 24">
+          <path
+            d="M6 7h12c3 0 6 13 2 13-2 0-3-4-5-4H9c-2 0-3 4-5 4C0 20 3 7 6 7Zm1 3v5m-2-2h4m7-2h.01M19 14h.01"
+          />
+        </symbol>
+        <symbol id="i-info" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 11v6m0-10v.01" />
+        </symbol>
+        <symbol id="i-bottle" viewBox="0 0 24 24">
+          <path
+            d="M9 2h6v4l2 3v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-3V2Zm-2 9h10M7 17h10"
+          />
+        </symbol>
+      </defs>
+    </svg>
+
+    <header class="site-header" id="site-header">
+      <div class="nav-shell flex items-center justify-between">
+        <a href="index.html" class="brand" aria-label="Nadhi Hijau, beranda">
+          <span class="brand-mark">
+            <svg class="icon">
+              <use href="#i-leaf" />
+            </svg>
+          </span>
+          <span
+            >NADHI<span class="brand-light">HIJAU</span>
+            <small>RAWAT BALI, RAWAT KEHIDUPAN</small>
+          </span>
+        </a>
+        <nav class="desktop-nav" aria-label="Navigasi utama">
+          <a href="index.html">Beranda</a>
+          <a href="filosofi.html">Filosofi</a>
+          <a href="kalkulator.html" class="active" aria-current="page"
+            >Aksi Hijau</a
+          >
+          <a href="leaderboard.html">Leaderboard</a>
+          <a href="galeri.html">Galeri</a>
+          <a href="pengumuman.html">Info Banjar</a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle icon-button"
+            id="theme-toggle"
+            type="button"
+            aria-label="Aktifkan tema terang"
+            title="Ganti tema"
+          >
+            <svg class="icon theme-sun">
+              <use href="#i-sun" />
+            </svg>
+            <svg class="icon theme-moon">
+              <use href="#i-moon" />
+            </svg>
+          </button>
+          <a class="nav-cta" href="edukasi.html"
+            >Ruang Belajar
+            <svg class="icon">
+              <use href="#i-arrow" />
+            </svg>
+          </a>
+          <button
+            id="menu-toggle"
+            class="menu-toggle icon-button"
+            aria-label="Buka menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <span> </span>
+            <span> </span>
+          </button>
+        </div>
+      </div>
+      <nav
+        id="mobile-nav"
+        class="mobile-nav"
+        aria-label="Navigasi ponsel"
+        hidden
+      >
+        <a href="index.html">Beranda</a>
+        <a href="filosofi.html">Filosofi</a>
+        <a href="kalkulator.html" class="active" aria-current="page"
+          >Aksi Hijau</a
+        >
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="pengumuman.html">Info Banjar</a>
+        <a href="edukasi.html">Ruang Belajar</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="kalkulator" class="section action-section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <div class="eyebrow">
+                <span class="section-num">02</span> DARI NIAT MENJADI AKSI
+              </div>
+              <h2>Yang terpilah,<br />menjadi <em>berkah.</em></h2>
+            </div>
+            <p class="heading-aside">
+              Hitung potensi sampah organikmu.<br />Setiap setoran adalah
+              langkah baik<br />untuk banjar dan bumi Bali.
+            </p>
+          </div>
+          <div class="calculator-layout reveal">
+            <form id="deposit-form" class="calculator-card" novalidate>
+              <fieldset aria-describedby="waste-hint">
+                <legend>01 <span>Pilih jenis sampah</span></legend>
+                <p class="selection-hint" id="waste-hint">
+                  Boleh pilih lebih dari satu. Isi berat masing-masing jenis
+                  yang dipilih.
+                </p>
+                <div class="waste-grid">
+                  <label class="waste-card">
+                    <input
+                      type="checkbox"
+                      name="waste"
+                      value="sesari"
+                      checked
+                    />
+                    <span class="waste-option">
+                      <span class="choice-check">
+                        <svg class="icon">
+                          <use href="#i-check" />
+                        </svg>
+                      </span>
+                      <svg class="waste-icon icon">
+                        <use href="#i-coins" />
+                      </svg>
+                      <strong>Sisa Sesari</strong>
+                      <small>Bagian organik persembahan</small>
+                    </span>
+                  </label>
+                  <label class="waste-card">
+                    <input type="checkbox" name="waste" value="canang" />
+                    <span class="waste-option">
+                      <span class="choice-check">
+                        <svg class="icon">
+                          <use href="#i-check" />
+                        </svg>
+                      </span>
+                      <svg class="waste-icon icon">
+                        <use href="#i-flower" />
+                      </svg>
+                      <strong>Canang</strong>
+                      <small>Bunga & janur terpilah</small>
+                    </span>
+                  </label>
+                  <label class="waste-card">
+                    <input type="checkbox" name="waste" value="daun" />
+                    <span class="waste-option">
+                      <span class="choice-check">
+                        <svg class="icon">
+                          <use href="#i-check" />
+                        </svg>
+                      </span>
+                      <svg class="waste-icon icon">
+                        <use href="#i-leaf" />
+                      </svg>
+                      <strong>Dedaunan</strong>
+                      <small>Daun & potongan rumput</small>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset class="origin-field">
+                <legend>Asal Setoran</legend>
+                <div class="chip-group">
+                  <label class="chip">
+                    <input type="radio" name="origin" value="rutin" checked />
+                    <span>Rutin</span>
+                  </label>
+                  <label class="chip">
+                    <input type="radio" name="origin" value="gotong" />
+                    <span>Gotong Royong <b>+20%</b> </span>
+                  </label>
+                  <label class="chip">
+                    <input type="radio" name="origin" value="acara" />
+                    <span>Acara <b>+10%</b> </span>
+                  </label>
+                </div>
+              </fieldset>
+              <p class="field-hint">
+                Pisahkan uang sesari, plastik, staples, dan bahan nonorganik
+                terlebih dahulu.
+              </p>
+              <div class="form-bottom multi-weight-form">
+                <fieldset class="weight-fields">
+                  <legend>02 <span>Berat per jenis</span></legend>
+                  <div class="weight-row" id="row-sesari">
+                    <label for="weight-sesari"
+                      >Sisa Sesari<small>12 poin per kg</small></label
+                    >
+                    <div class="weight-input">
+                      <button
+                        type="button"
+                        data-weight-step="-0.5"
+                        data-weight-target="sesari"
+                        aria-label="Kurangi berat Sisa Sesari 0,5 kilogram"
+                      >
+                        −
+                      </button>
+                      <input
+                        id="weight-sesari"
+                        name="weight-sesari"
+                        type="number"
+                        inputmode="decimal"
+                        min="0.1"
+                        max="1000"
+                        step="0.1"
+                        value="5"
+                        required
+                        aria-describedby="weight-hint form-error"
+                      />
+                      <span>kg</span>
+                      <button
+                        type="button"
+                        data-weight-step="0.5"
+                        data-weight-target="sesari"
+                        aria-label="Tambah berat Sisa Sesari 0,5 kilogram"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="weight-row" id="row-canang" hidden>
+                    <label for="weight-canang"
+                      >Canang<small>10 poin per kg</small></label
+                    >
+                    <div class="weight-input">
+                      <button
+                        type="button"
+                        data-weight-step="-0.5"
+                        data-weight-target="canang"
+                        aria-label="Kurangi berat Canang 0,5 kilogram"
+                        disabled
+                      >
+                        −
+                      </button>
+                      <input
+                        id="weight-canang"
+                        name="weight-canang"
+                        type="number"
+                        inputmode="decimal"
+                        min="0.1"
+                        max="1000"
+                        step="0.1"
+                        value="1"
+                        required
+                        aria-describedby="weight-hint form-error"
+                        disabled
+                      />
+                      <span>kg</span>
+                      <button
+                        type="button"
+                        data-weight-step="0.5"
+                        data-weight-target="canang"
+                        aria-label="Tambah berat Canang 0,5 kilogram"
+                        disabled
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="weight-row" id="row-daun" hidden>
+                    <label for="weight-daun"
+                      >Dedaunan<small>8 poin per kg</small></label
+                    >
+                    <div class="weight-input">
+                      <button
+                        type="button"
+                        data-weight-step="-0.5"
+                        data-weight-target="daun"
+                        aria-label="Kurangi berat Dedaunan 0,5 kilogram"
+                        disabled
+                      >
+                        −
+                      </button>
+                      <input
+                        id="weight-daun"
+                        name="weight-daun"
+                        type="number"
+                        inputmode="decimal"
+                        min="0.1"
+                        max="1000"
+                        step="0.1"
+                        value="1"
+                        required
+                        aria-describedby="weight-hint form-error"
+                        disabled
+                      />
+                      <span>kg</span>
+                      <button
+                        type="button"
+                        data-weight-step="0.5"
+                        data-weight-target="daun"
+                        aria-label="Tambah berat Dedaunan 0,5 kilogram"
+                        disabled
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <p id="weight-empty" class="field-hint" hidden>
+                    Pilih minimal satu jenis sampah di atas.
+                  </p>
+                  <small id="weight-hint"
+                    >Minimal 0,1 kg per jenis, maksimal total 1.000 kg per
+                    setoran. Gunakan satu angka desimal.</small
+                  >
+                </fieldset>
+                <div>
+                  <label class="field-label" for="banjar"
+                    >03 <span>Pilih banjarmu</span></label
+                  >
+                  <select name="banjar" id="banjar">
+                    <option value="tegal">Banjar Tegal Kawan</option>
+                    <option value="pande">Banjar Pande</option>
+                    <option value="sari">Banjar Sari</option>
+                    <option value="tengah">Banjar Tengah</option>
+                    <option value="kaja">Banjar Kaja</option>
+                  </select>
+                  <small>Nama banjar untuk simulasi</small>
+                </div>
+              </div>
+              <p
+                class="form-error"
+                id="form-error"
+                role="alert"
+                tabindex="-1"
+                hidden
+              ></p>
+              <button class="button button-lime submit-deposit" type="submit">
+                Simulasikan Setoran
+                <svg class="icon">
+                  <use href="#i-arrow" />
+                </svg>
+              </button>
+              <p class="form-footnote">
+                <svg class="icon">
+                  <use href="#i-info" />
+                </svg>
+                Simulasi terbuka. Tidak perlu akun.
+              </p>
+            </form>
+            <aside class="impact-card">
+              <div class="eyebrow">POTENSI AKSI KECILMU</div>
+              <div class="impact-main" aria-live="polite" aria-atomic="true">
+                <svg class="icon impact-leaf">
+                  <use href="#i-leaf" />
+                </svg>
+                <div>
+                  <span id="point-estimate">60</span>
+                  <small>poin hijau</small>
+                </div>
+              </div>
+              <p>Sedikit dari rumahmu.<br />Berarti bagi lingkunganmu.</p>
+              <div class="impact-breakdown">
+                <div>
+                  <span>Total berat</span
+                  ><strong id="total-weight">5 kg</strong>
+                </div>
+                <div>
+                  <span>Poin dasar</span>
+                  <strong id="base-points">60 poin</strong>
+                </div>
+                <div>
+                  <span>Bonus komunitas</span>
+                  <strong id="bonus-points">+0 poin</strong>
+                </div>
+                <div>
+                  <span>Estimasi kompos</span>
+                  <strong id="compost-estimate">2 kg</strong>
+                </div>
+              </div>
+              <div class="impact-note">
+                <svg class="icon">
+                  <use href="#i-info" />
+                </svg>
+                <p>
+                  Rasio kompos 40% dan nilai poin adalah asumsi simulasi. Hasil
+                  pengolahan sebenarnya dapat berbeda.
+                </p>
+              </div>
+              <a href="leaderboard.html" class="text-link"
+                >Lihat gerakan banjar
+                <svg class="icon">
+                  <use href="#i-arrow" />
+                </svg>
+              </a>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">
+            <svg class="icon">
+              <use href="#i-leaf" />
+            </svg>
+          </span>
+          <span
+            >NADHI<span class="brand-light">HIJAU</span>
+            <small>RAWAT BALI, RAWAT KEHIDUPAN</small>
+          </span>
+        </a>
+        <p>Berakar pada budaya.<br />Bertumbuh bersama alam.</p>
+        <a href="#main" class="back-top"
+          >Kembali ke atas
+          <svg class="icon">
+            <use href="#i-down" />
+          </svg>
+        </a>
+      </div>
+      <div class="container footer-bottom">
+        <span
+          >© <span id="copyright-year">2026</span> Nadhi Hijau. Sebuah gagasan
+          untuk Bali.</span
+        >
+        <span>Tri Hita Karana <i>·</i> Bali, Indonesia</span>
+      </div>
+    </footer>
+    <dialog id="info-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-shell">
+        <button
+          id="dialog-close"
+          class="icon-button dialog-close"
+          type="button"
+          aria-label="Tutup pop-up"
+        >
+          <svg class="icon">
+            <use href="#i-close" />
+          </svg>
+        </button>
+        <div id="dialog-content"></div>
+      </div>
+    </dialog>
+    <noscript>
+      <div class="no-js">
+        Aktifkan JavaScript untuk kalkulator, countdown, pop-up, dan permainan.
+        Konten kampanye tetap dapat dibaca.
+      </div>
+    </noscript>
+  </body>
+</html>

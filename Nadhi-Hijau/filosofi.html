@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="id" data-theme="dark" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071f19" />
+    <title>Filosofi — Nadhi Hijau</title>
+    <meta name="description" content="Rawat Bali dengan langkah sederhana. Pelajari Tri Hita Karana, simulasikan setoran sampah organik, dan bergerak bersama banjar untuk lingkungan yang lebih hijau." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230b3025'/%3E%3Cpath d='M11 28C6 14 21 8 30 9c1 16-6 24-17 17M12 28l12-12' fill='none' stroke='%23d2dfa1' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+    <script>
+      try { const t = new URLSearchParams(location.search).get("tema") || localStorage.getItem("nadhi.theme"); if (t === "light" || t === "dark") { document.documentElement.dataset.theme = t; document.documentElement.classList.toggle("dark", t === "dark"); } } catch (_) {}
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+        theme: {
+          screens: { mob: '481px', tab: '701px', mid: '901px', lap: '1101px', desk: '1281px', wide: '1601px' },
+          extend: {
+            colors: {
+              page: 'var(--bg)', surface: 'var(--surface)', raised: 'var(--surface-2)', deep: 'var(--deep)',
+              primary: 'var(--text)', muted: 'var(--muted)', line: 'var(--line)',
+              accent: 'var(--lime)', 'accent-fg': 'var(--lime-text)', gold: 'var(--gold)', hdr: 'var(--header)'
+            },
+            fontFamily: {
+              display: ['"Playfair Display"','Georgia','serif'],
+              body: ['"DM Sans"','Arial','sans-serif'],
+              heading: ['"Manrope"','Arial','sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* === Theme variables === */
+      :root{color-scheme:dark;--bg:#081f19;--surface:#102a22;--surface-2:#153429;--deep:#051911;--text:#f1f4e9;--muted:#a7b9ad;--line:rgba(207,227,210,.16);--lime:#d6e9a4;--lime-text:#15281c;--gold:#d0cf9b;--header:rgba(6,25,18,.94)}
+      html[data-theme=light]{color-scheme:light;--bg:#f6f8f2;--surface:#edf2e8;--surface-2:#e0eada;--deep:#eaf0e3;--text:#173b2a;--muted:#576e5c;--line:rgba(26,67,44,.17);--lime:#244e35;--lime-text:#f4f6e9;--gold:#696634;--header:rgba(246,248,242,.97)}
+
+      /* === Base resets === */
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth;scroll-padding-top:98px}
+      body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',Arial,sans-serif;font-size:16px;line-height:1.65;animation:entrance 2.6s ease both}
+      button,input,select{font:inherit}
+      button,a,input,select{-webkit-tap-highlight-color:transparent}
+      button,a{touch-action:manipulation}
+      button{cursor:pointer;color:inherit}
+      a{color:inherit;text-decoration:none}
+      img{display:block;max-width:100%;object-fit:cover}
+      button:disabled{cursor:default}
+      h1,h2,h3,p{margin:0}
+      [hidden]{display:none!important}
+      button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+
+      /* === Icon system === */
+      .icon-defs{position:absolute;width:0;height:0;overflow:hidden}
+      .icon{height:22px;width:22px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+      /* === Skip link === */
+      .skip-link{position:fixed;top:-80px;left:16px;z-index:200;background:var(--lime);color:var(--lime-text);padding:12px 20px}
+      .skip-link:focus{top:12px}
+
+      /* === Theme toggle === */
+      .theme-moon{display:none}
+      html[data-theme=light] .theme-sun{display:none}
+      html[data-theme=light] .theme-moon{display:block}
+      html[data-theme=light] .brand-mark{color:#47744a}
+
+      /* === Header scrolled state (JS) === */
+      .site-header.scrolled{position:fixed;background:var(--header);color:var(--text);border-color:var(--line);box-shadow:0 5px 20px #0000000a}
+
+      /* === Menu toggle hamburger === */
+      .menu-toggle span{position:absolute;width:18px;height:1px;background:currentColor;top:16px}
+      .menu-toggle span+span{top:24px}
+
+      /* === Desktop nav active underline === */
+      .desktop-nav a.active:after{content:'';position:absolute;height:2px;background:#d6e9a4;left:0;right:0;bottom:23px}
+
+      /* === Mobile nav active color === */
+      .mobile-nav a[aria-current="page"]{color:var(--lime)}
+
+      /* === Inner-page layout === */
+      body.inner-page{display:flex;flex-direction:column;min-height:100svh}
+      .inner-page #main{flex:1;padding-top:96px}
+      .inner-page .site-header{position:fixed;background:var(--header);color:var(--text);border-color:var(--line)}
+      @media(max-width:1280px){.inner-page #main{padding-top:80px}}
+      @media(max-width:700px){.inner-page #main{padding-top:74px}}
+
+      /* === Philosophy visual photo overlay gradient === */
+      .philosophy-visual:after{content:'';position:absolute;inset:30% 0 0;background:linear-gradient(0deg,#07201496,transparent 60%);border-radius:3px}
+
+      /* === Reveal animation (JS) === */
+      .reveal.is-ready{opacity:0;transform:translateY(22px);transition:opacity 1.3s ease,transform 1.3s ease}
+      .reveal.is-ready.is-visible{opacity:1;transform:none}
+
+      /* === Dialog === */
+      dialog{border:1px solid var(--line);border-radius:10px;max-width:min(680px,calc(100% - 32px));max-height:86svh;padding:0;color:var(--text);background:var(--bg);box-shadow:0 25px 100px #0006;overscroll-behavior:contain;overflow-y:auto}
+      dialog::backdrop{background:#00170ec7;backdrop-filter:blur(7px)}
+      .dialog-shell{position:relative;padding:42px}
+      .dialog-close{position:absolute;right:16px;top:16px;width:34px;height:34px;background:var(--surface);z-index:2}
+      .dialog-close>.icon{width:16px;height:16px}
+      .dialog-eyebrow{font-size:.75rem;letter-spacing:.13em;color:var(--gold);margin-bottom:13px;padding-right:25px}
+      .dialog-title{font-family:'Manrope',Arial,sans-serif;font-size:1.8rem;letter-spacing:-.04em;line-height:1.3;margin-bottom:24px;padding-right:12px}
+      .dialog-body{font-size:1rem;color:var(--muted);line-height:1.9}
+      .dialog-body p+p{margin-top:15px}
+      .dialog-body h3{font-family:'Manrope',Arial,sans-serif;font-size:1rem;color:var(--text);margin:24px 0 8px;font-weight:600}
+      .dialog-body ul,.dialog-body ol{padding-left:20px;margin:10px 0}
+      .dialog-body li{margin:8px 0}
+      .dialog-callout{background:var(--surface-2);border-left:2px solid var(--gold);padding:15px 18px;border-radius:0 4px 4px 0;margin:18px 0;color:var(--text)}
+      .dialog-photo{width:100%;max-height:340px;object-fit:cover;border-radius:4px;margin-bottom:18px}
+      .dialog-source{font-size:.75rem;color:var(--gold);text-decoration:underline;text-underline-offset:4px}
+      .dialog-body,.dialog-title{overflow-wrap:anywhere}
+      .no-js{background:var(--lime);color:var(--lime-text);padding:20px;text-align:center}
+
+      /* === Keyframes === */
+      @keyframes entrance{from{opacity:0}to{opacity:1}}
+
+      /* === Reduced motion === */
+      @media(prefers-reduced-motion:reduce){
+        html{scroll-behavior:auto}
+        *,*::before,*::after{animation:none!important;transition:none!important}
+        .reveal.is-ready{opacity:1;transform:none}
+      }
+      @media(max-width:700px){
+        .dialog-shell{padding:40px 24px 26px}
+        .dialog-title{font-size:1.55rem}
+        .dialog-body{font-size:.875rem}
+        dialog{max-height:90svh}
+      }
+      @media(max-width:480px){
+        .dialog-shell{padding:52px 20px 26px}
+        dialog{max-width:calc(100% - 24px)}
+      }
+    </style>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="filosofi" class="inner-page">
+    <a class="skip-link" href="#main">Langsung ke konten</a>
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-defs" aria-hidden="true">
+      <defs>
+        <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C1 8 12 3 21 3c0 12-5 19-15 14M4 21 16 9" /></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></symbol>
+        <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6" /></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" /></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14a8.5 8.5 0 0 1-10-10A8.5 8.5 0 1 0 20 14Z" /></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6" /></symbol>
+      </defs>
+    </svg>
+
+    <!-- ========== HEADER ========== -->
+    <header class="site-header absolute top-0 left-0 w-full z-50 border-b border-line transition-[background] duration-300" id="site-header">
+      <div class="nav-shell w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-96px)] max-w-[1440px] h-[74px] tab:h-20 desk:h-24 gap-2 tab:gap-5 min-[1201px]:gap-6 mx-auto flex items-center justify-between">
+        <a href="index.html" class="brand flex gap-2.5 items-center whitespace-nowrap font-heading text-[0.9375rem] mob:text-[1rem] min-[1201px]:text-[1.12rem] tracking-[.055em] font-extrabold leading-[1.2]" aria-label="Nadhi Hijau, beranda">
+          <span class="brand-mark w-6 mob:w-[27px] min-[1201px]:w-[35px] h-10 grid place-items-center text-[#d6e9a4]">
+            <svg class="icon w-6 mob:w-[27px] min-[1201px]:w-8 h-8"><use href="#i-leaf" /></svg>
+          </span>
+          <span>NADHI<span class="font-normal ml-[3px]">HIJAU</span>
+            <small class="font-body block text-xs tracking-[.15em] font-medium opacity-70 mt-[7px] hidden mob:block">RAWAT BALI, RAWAT KEHIDUPAN</small>
+          </span>
+        </a>
+        <nav class="desktop-nav hidden desk:flex items-center gap-[25px]" aria-label="Navigasi utama">
+          <a href="index.html" class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100">Beranda</a>
+          <a href="filosofi.html" class="active text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100" aria-current="page">Filosofi</a>
+          <a href="kalkulator.html" class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100">Aksi Hijau</a>
+          <a href="leaderboard.html" class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100">Leaderboard</a>
+          <a href="galeri.html" class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100">Galeri</a>
+          <a href="pengumuman.html" class="text-sm relative whitespace-nowrap opacity-80 py-[35px] hover:opacity-100">Info Banjar</a>
+        </nav>
+        <div class="nav-actions flex items-center gap-[6px] tab:gap-[10px] min-[1201px]:gap-[14px] flex-shrink-0">
+          <button class="theme-toggle inline-flex items-center justify-center bg-transparent border border-line rounded-full w-[44px] h-[44px] desk:w-[42px] desk:h-[42px] flex-shrink-0" id="theme-toggle" type="button" aria-label="Aktifkan tema terang" title="Ganti tema">
+            <svg class="icon theme-sun"><use href="#i-sun" /></svg>
+            <svg class="icon theme-moon"><use href="#i-moon" /></svg>
+          </button>
+          <a class="nav-cta hidden tab:flex desk:flex items-center gap-[18px] border border-line rounded-[5px] text-sm py-[10px] px-[14px] whitespace-nowrap min-h-[44px]" href="edukasi.html">Ruang Belajar <svg class="icon w-[17px]"><use href="#i-arrow" /></svg></a>
+          <button id="menu-toggle" class="menu-toggle desk:hidden inline-flex items-center justify-center bg-transparent border border-line rounded-[5px] w-[44px] h-[44px] flex-shrink-0 relative" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav id="mobile-nav" class="mobile-nav bg-page text-primary py-[10px] px-6 pb-6 border-b border-line max-h-[calc(100svh-74px)] tab:max-h-[calc(100svh-80px)] overflow-y-auto" aria-label="Navigasi ponsel" hidden>
+        <a href="index.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Beranda</a>
+        <a href="filosofi.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]" aria-current="page">Filosofi</a>
+        <a href="kalkulator.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Aksi Hijau</a>
+        <a href="leaderboard.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Leaderboard</a>
+        <a href="galeri.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Galeri</a>
+        <a href="pengumuman.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Info Banjar</a>
+        <a href="edukasi.html" class="block py-[11px] px-[6px] border-b border-line min-h-[46px]">Ruang Belajar</a>
+      </nav>
+    </header>
+
+    <!-- ========== MAIN ========== -->
+    <main id="main">
+      <section id="filosofi" class="py-16 tab:py-20 lap:py-[108px] scroll-mt-5">
+        <div class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto grid grid-cols-1 mid:grid-cols-[1.1fr_1fr] gap-[35px] mid:gap-10 lap:gap-20 items-start">
+          <!-- Text Column -->
+          <div class="reveal">
+            <div class="text-xs font-semibold tracking-[.12em] tab:tracking-[.16em] flex items-center gap-3 tab:gap-[17px] text-gold mb-5 tab:mb-6">
+              <span class="text-muted text-sm tracking-[.03em] pr-3 tab:pr-[18px] border-r border-line">01</span> AKAR GERAKAN KAMI
+            </div>
+            <h2 class="font-heading text-[2.15rem] tab:text-[clamp(2.1rem,3.2vw,3.1rem)] leading-[1.24] font-medium tracking-[-0.045em]">
+              Merawat alam.<br />Menjaga <em class="font-display font-normal tracking-[-0.035em]">keseimbangan.</em>
+            </h2>
+            <p class="text-muted text-base leading-[1.85] mt-[18px] tab:mt-[22px] max-w-[580px]">
+              Bagi Bali, alam bukan sekadar tempat tinggal. Ia bagian dari kehidupan yang kita jaga bersama.
+            </p>
+            <!-- Values -->
+            <div class="mt-8 tab:mt-10 grid gap-0">
+              <div class="flex items-start gap-4 tab:gap-5 py-5 tab:py-[24px] border-t border-line">
+                <span class="text-xl tab:text-2xl font-heading text-accent opacity-50 font-light leading-[1]">01</span>
+                <div>
+                  <h3 class="font-heading text-base tab:text-[1.05rem] font-semibold">Parahyangan</h3>
+                  <p class="text-muted text-sm tab:text-base leading-[1.8] mt-[5px]">Harmoni dengan Tuhan. Menghormati persembahan dengan memilah sisa upacara secara bijak.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 tab:gap-5 py-5 tab:py-[24px] border-t border-line">
+                <span class="text-xl tab:text-2xl font-heading text-accent opacity-50 font-light leading-[1]">02</span>
+                <div>
+                  <h3 class="font-heading text-base tab:text-[1.05rem] font-semibold">Pawongan</h3>
+                  <p class="text-muted text-sm tab:text-base leading-[1.8] mt-[5px]">Harmoni antarmanusia. Saling mengajak dan bergotong royong lewat kebersamaan banjar.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 tab:gap-5 py-5 tab:py-[24px] border-t border-line">
+                <span class="text-xl tab:text-2xl font-heading text-accent opacity-50 font-light leading-[1]">03</span>
+                <div>
+                  <h3 class="font-heading text-base tab:text-[1.05rem] font-semibold">Palemahan</h3>
+                  <p class="text-muted text-sm tab:text-base leading-[1.8] mt-[5px]">Harmoni dengan alam. Mengolah sampah organik menjadi kompos yang menyuburkan kembali tanah.</p>
+                </div>
+              </div>
+            </div>
+            <a class="inline-flex items-center gap-3 text-sm tab:text-base text-accent border-b border-accent pb-1 mt-6" href="kalkulator.html">
+              Hidupkan nilai ini dalam aksi <svg class="icon w-[17px] h-[17px]"><use href="#i-arrow" /></svg>
+            </a>
+          </div>
+          <!-- Visual Column -->
+          <div class="philosophy-visual reveal relative rounded-[3px] overflow-hidden min-h-[380px] tab:min-h-[530px] mid:min-h-[480px] lap:min-h-[560px]">
+            <img src="assets/philosophy.webp" alt="Seseorang membawa nampan berisi canang dan bunga untuk persembahan Bali" class="absolute inset-0 w-full h-full object-cover" width="700" height="850" loading="lazy" />
+            <div class="absolute bottom-[20px] tab:bottom-[25px] lap:bottom-8 left-[20px] tab:left-6 lap:left-[35px] right-[20px] tab:right-[25px] z-[1] text-[#f1f4e9]">
+              <span class="text-xs tracking-[.15em] text-[#dae5b6]">KEARIFAN LOKAL, LANGKAH MASA DEPAN</span>
+              <p class="font-display text-[1.9rem] lap:text-[2.3rem] my-2">Tri Hita Karana</p>
+              <small class="text-[#ccd4c2] text-sm">Tiga harmoni. Satu Bali yang lestari.</small>
+            </div>
+            <span class="absolute right-0 top-0 py-3 px-[17px] z-[1] bg-[#0b271ea6] text-[#dee4d2] text-xs tracking-[.15em]">BALI / 001</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="border-t border-line bg-deep">
+      <div class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto flex flex-wrap mid:flex-nowrap justify-between items-center gap-[25px] tab:gap-[30px] py-[31px] tab:py-10">
+        <a class="brand flex gap-2.5 items-center whitespace-nowrap font-heading text-[1.12rem] tracking-[.055em] font-extrabold leading-[1.2]" href="index.html">
+          <span class="brand-mark w-[35px] h-10 grid place-items-center text-[#d6e9a4]">
+            <svg class="icon w-8 h-8"><use href="#i-leaf" /></svg>
+          </span>
+          <span>NADHI<span class="font-normal ml-[3px]">HIJAU</span>
+            <small class="font-body block text-xs tracking-[.15em] font-medium opacity-70 mt-[7px]">RAWAT BALI, RAWAT KEHIDUPAN</small>
+          </span>
+        </a>
+        <p class="text-sm tab:text-base text-muted leading-[1.8] mr-auto mid:ml-[70px] tab:ml-0 tab:mr-auto">Berakar pada budaya.<br />Bertumbuh bersama alam.</p>
+        <a href="#main" class="flex items-center gap-4 text-xs text-muted w-full mid:w-auto justify-between mid:justify-start border-t mid:border-t-0 border-line pt-[18px] mid:pt-0">
+          Kembali ke atas <svg class="icon w-[17px] rotate-180"><use href="#i-down" /></svg>
+        </a>
+      </div>
+      <div class="w-[calc(100%-32px)] mob:w-[calc(100%-64px)] min-[1201px]:w-[calc(100%-112px)] max-w-[1200px] mx-auto flex flex-col tab:flex-row justify-between gap-[9px] tab:gap-5 py-5 tab:py-[23px] border-t border-line text-xs text-muted">
+        <span>© <span id="copyright-year">2026</span> Nadhi Hijau. Sebuah gagasan untuk Bali.</span>
+        <span>Tri Hita Karana <i class="mx-[9px] not-italic">·</i> Bali, Indonesia</span>
+      </div>
+    </footer>
+
+    <!-- ========== DIALOG ========== -->
+    <dialog id="info-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-shell">
+        <button id="dialog-close" class="dialog-close inline-flex items-center justify-center rounded-full border border-line" type="button" aria-label="Tutup pop-up">
+          <svg class="icon"><use href="#i-close" /></svg>
+        </button>
+        <div id="dialog-content"></div>
+      </div>
+    </dialog>
+    <noscript>
+      <div class="no-js">Aktifkan JavaScript untuk kalkulator, countdown, pop-up, dan permainan. Konten kampanye tetap dapat dibaca.</div>
+    </noscript>
+  </body>
+</html>
